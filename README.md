@@ -21,7 +21,23 @@ I want to be able to make a new recipe card.
 I do not want anyone to be able to edit or delete my card that I make.
 •	Create wireframes
 
-![Untitled Diagram-Page-1 drawio](https://user-images.githubusercontent.com/112329390/194783343-00dfc2d2-151d-421b-a5a3-a264038bfeec.png)
+![Untitled Diagram-Page-1 drawio](https://user-images.githubusercontent.com/112329390/194783389-96666126-5b0a-4272-8e36-96ac18851d57.png)
+
+![Untitled Diagram-Page-2 drawio](https://user-images.githubusercontent.com/112329390/194783396-3ce57429-964c-4087-8f54-7ecc0ca1e885.png)
+
+![Untitled Diagram-Page-3 drawio](https://user-images.githubusercontent.com/112329390/194783398-dbc67a23-6942-4ff6-863a-9bf014404859.png)
+
+![Untitled Diagram-Page-4 drawio](https://user-images.githubusercontent.com/112329390/194783410-0b3e2477-c3c3-4964-9d12-d4d5b7f79a8f.png)
+
+![Untitled Diagram-Page-5 drawio](https://user-images.githubusercontent.com/112329390/194783428-4e5fc8e4-4e97-401c-b200-aedceaf2b07a.png)
+
+![Untitled Diagram-Page-6 drawio](https://user-images.githubusercontent.com/112329390/194783433-6527baae-b7b3-49b3-8a23-965de599f269.png)
+
+![Untitled Diagram-Page-7 drawio](https://user-images.githubusercontent.com/112329390/194783446-da0c8375-e24e-4d99-9610-79122512b3b5.png)
+
+![Untitled Diagram-Page-9 drawio](https://user-images.githubusercontent.com/112329390/194783453-a2e12453-746f-44f2-ad3f-98e2421aa2ef.png)
+
+
 
 
 •	Create Entity Relationship Diagrams
