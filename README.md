@@ -50,6 +50,7 @@ MongoDB, Mongoose, Express, Liquidjs, Bootstrap, CSS
 
 ![Untitled Diagram-Page-10 drawio](https://user-images.githubusercontent.com/112329390/194929991-23b47855-c607-43a0-bf5e-5093abcdfe06.png)• Schedule of week
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 Monday -approval, work on boilerplate, set up repository, seed file, models
 Tuesday -work on routes and connections 
@@ -66,3 +67,12 @@ Friday - finalize design, clean up and debug
 
 
 >>>>>>> day1
+=======
+
+Monday -approval, work on boilerplate, set up repository, seed file, models
+Tuesday -work on routes and connections 
+Wednesday -make sure connections and routes are working
+Thursady - work on front end, liquid, bootstraps
+Friday - finalize design, clean up and debug
+
+>>>>>>> refs/remotes/origin/main
