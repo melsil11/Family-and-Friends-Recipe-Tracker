@@ -44,13 +44,13 @@ I do not want anyone to be able to edit or delete my card that I make.
 
 ![Untitled Diagram-Page-9 drawio](https://user-images.githubusercontent.com/112329390/194783453-a2e12453-746f-44f2-ad3f-98e2421aa2ef.png)
 
-![erd](https://user-images.githubusercontent.com/112329390/194874986-424a8bf4-54b2-49a4-aaec-2dad4fa888df.png)
+![Untitled Diagram-Page-10](https://user-images.githubusercontent.com/112329390/194876592-f9de8799-b468-493d-8ee6-27252b944f24.jpeg)
 
 
 
 •	Create Entity Relationship Diagrams
 
-![Untitled Diagram-Page-10 drawio](https://user-images.githubusercontent.com/112329390/194784834-c7272344-b2b2-49ee-b454-2f8516fa761b.png)
+![erd](https://user-images.githubusercontent.com/112329390/194874986-424a8bf4-54b2-49a4-aaec-2dad4fa888df.png)
 
 • Schedule of week
 start by creating models, controllers, then views. 
