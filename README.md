@@ -26,6 +26,10 @@ I want to be able to leave a comment.
 I want to be able to see every comment. 
 I want to be able to make a new recipe card. 
 I do not want anyone to be able to edit or delete my card that I make.
+
+•Technologies used
+MongoDB, Mongoose, Express, Liquidjs, Bootstrap, CSS 
+
 •	Create wireframes
 
 ![Untitled Diagram-Page-1 drawio](https://user-images.githubusercontent.com/112329390/194783389-96666126-5b0a-4272-8e36-96ac18851d57.png)
