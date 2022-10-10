@@ -1,4 +1,4 @@
-Family-and-Friends-Food-Tracker
+Family-and-Friends-Favorite-Recipe-Tracker
 
 Project planning 
 
