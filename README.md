@@ -48,8 +48,7 @@ MongoDB, Mongoose, Express, Liquidjs, Bootstrap, CSS
 
 •	Create Entity Relationship Diagrams
 
-![Untitled Diagram-Page-10 drawio](https://user-images.githubusercontent.com/112329390/194925489-d4646072-12ad-44c3-9bb9-0e446ae7ac67.png)
-
+![Untitled Diagram-Page-10 drawio](https://user-images.githubusercontent.com/112329390/194927349-28ce5c80-0f3b-4fab-8334-a21b68ee08a3.png)
 
 
 • Schedule of week
