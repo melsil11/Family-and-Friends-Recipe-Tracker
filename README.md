@@ -3,12 +3,19 @@ Family-and-Friends-Food-Tracker
 Project planning 
 
 •	Draft a brief overview of the general project idea.
+
 This project will be a recipe tracker. 
 Users will be able log in create a recipe card and be able to leave a comment about the recipe. 
 Users will be able to see if a recipe is a hit or not. 
 Users can also leave suggestions in the comment section. 
 Users will be able to see some dietary requirements (vegetarian, dairy, plant based, meat).
+
+• Seed Data 
+
+{name: string, main ingredients: string, plant based: boolean, meat: boolean, vegetarian: boolean, dairy: boolean}
+
 •	Write a user story.
+
 I want to be able to sign up for a personal account. 
 I want to be able to log in with a username and password. 
 I want to be brought to the main page. 
@@ -37,9 +44,13 @@ I do not want anyone to be able to edit or delete my card that I make.
 
 ![Untitled Diagram-Page-9 drawio](https://user-images.githubusercontent.com/112329390/194783453-a2e12453-746f-44f2-ad3f-98e2421aa2ef.png)
 
+![erd](https://user-images.githubusercontent.com/112329390/194874986-424a8bf4-54b2-49a4-aaec-2dad4fa888df.png)
 
 
 
 •	Create Entity Relationship Diagrams
 
 ![Untitled Diagram-Page-10 drawio](https://user-images.githubusercontent.com/112329390/194784834-c7272344-b2b2-49ee-b454-2f8516fa761b.png)
+
+• Schedule of week
+start by creating models, controllers, then views. 
