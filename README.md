@@ -44,7 +44,6 @@ I do not want anyone to be able to edit or delete my card that I make.
 
 ![Untitled Diagram-Page-9 drawio](https://user-images.githubusercontent.com/112329390/194783453-a2e12453-746f-44f2-ad3f-98e2421aa2ef.png)
 
-![Untitled Diagram-Page-10](https://user-images.githubusercontent.com/112329390/194876592-f9de8799-b468-493d-8ee6-27252b944f24.jpeg)
 
 
 
