@@ -1,8 +1,8 @@
-Family-and-Friends-Favorite-Recipe-Tracker
+##### Family-and-Friends-Favorite-Recipe-Tracker
 
-Project planning 
+### Project planning 
 
-•	Draft a brief overview of the general project idea.
+## Description
 
 This project will be a recipe tracker. 
 Users will be able log in create a recipe card and be able to leave a comment about the recipe. 
@@ -10,11 +10,8 @@ Users will be able to see if a recipe is a hit or not.
 Users can also leave suggestions in the comment section. 
 Users will be able to see some dietary requirements (vegetarian, dairy, plant based, meat).
 
-• Seed Data 
 
-{name: string, main ingredients: string, plant based: boolean, meat: boolean, vegetarian: boolean, dairy: boolean}
-
-•	Write a user story.
+## User story
 
 I want to be able to sign up for a personal account. 
 I want to be able to log in with a username and password. 
@@ -26,7 +23,13 @@ I want to be able to leave a comment.
 I want to be able to see every comment. 
 I want to be able to make a new recipe card. 
 I do not want anyone to be able to edit or delete my card that I make.
-•	Create wireframes
+
+## Seed Data 
+
+{name: string, main ingredients: string, plant based: boolean, meat: boolean, vegetarian: boolean, dairy: boolean}
+
+
+## Create wireframes
 
 ![Untitled Diagram-Page-1 drawio](https://user-images.githubusercontent.com/112329390/194783389-96666126-5b0a-4272-8e36-96ac18851d57.png)
 
@@ -46,10 +49,9 @@ I do not want anyone to be able to edit or delete my card that I make.
 
 
 
-
-•	Create Entity Relationship Diagrams
+## Create Entity Relationship Diagrams
 
 ![erd](https://user-images.githubusercontent.com/112329390/194874986-424a8bf4-54b2-49a4-aaec-2dad4fa888df.png)
 
-• Schedule of week
+## Schedule of week
 start by creating models, controllers, then views. 

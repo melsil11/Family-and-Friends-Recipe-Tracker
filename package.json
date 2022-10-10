@@ -1,0 +1,36 @@
+{
+  "name": "familyandfriendsrecipetracker",
+  "version": "1.0.0",
+  "description": "### Project planning",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server.js",
+    "seed": "node models/seed.js"
+  },
+  "keywords": [
+    "Recipe, Food, Tracker"
+  ],
+  "author": "Melanie Silva",
+  "license": "ISC",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "connect-mongo": "^4.6.0",
+    "dotenv": "^16.0.0",
+    "express": "^4.17.3",
+    "express-session": "^1.17.2",
+    "liquid-express-views": "^1.0.8",
+    "method-override": "^3.0.0",
+    "mongoose": "^6.2.4",
+    "morgan": "^1.10.0"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/melsil11/Family-and-Friends-Recipe-Tracker.git"
+  },
+  "bugs": {
+    "url": "https://github.com/melsil11/Family-and-Friends-Recipe-Tracker/issues"
+  },
+  "homepage": "https://github.com/melsil11/Family-and-Friends-Recipe-Tracker#readme"
+}
