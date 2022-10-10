@@ -13,6 +13,7 @@ Users will be able to see some dietary requirements (vegetarian, dairy, plant ba
 • Seed Data 
 
 {name: string, main ingredients: string, plant based: boolean, meat: boolean, vegetarian: boolean, dairy: boolean}
+{name: string}
 
 •	Write a user story.
 
@@ -38,22 +39,16 @@ MongoDB, Mongoose, Express, Liquidjs, Bootstrap, CSS
 
 ![Untitled Diagram-Page-3 drawio](https://user-images.githubusercontent.com/112329390/194783398-dbc67a23-6942-4ff6-863a-9bf014404859.png)
 
-![Untitled Diagram-Page-4 drawio](https://user-images.githubusercontent.com/112329390/194783410-0b3e2477-c3c3-4964-9d12-d4d5b7f79a8f.png)
+![Untitled Diagram-Page-5 drawio](https://user-images.githubusercontent.com/112329390/194924970-1901375e-7dfe-4edf-83a1-be59ba2794eb.png)
 
-![Untitled Diagram-Page-5 drawio](https://user-images.githubusercontent.com/112329390/194783428-4e5fc8e4-4e97-401c-b200-aedceaf2b07a.png)
+![Untitled Diagram-Page-6 drawio](https://user-images.githubusercontent.com/112329390/194924981-2a991854-4515-41f6-bfec-3044afdbf8e3.png)
 
-![Untitled Diagram-Page-6 drawio](https://user-images.githubusercontent.com/112329390/194783433-6527baae-b7b3-49b3-8a23-965de599f269.png)
-
-![Untitled Diagram-Page-7 drawio](https://user-images.githubusercontent.com/112329390/194783446-da0c8375-e24e-4d99-9610-79122512b3b5.png)
-
-![Untitled Diagram-Page-9 drawio](https://user-images.githubusercontent.com/112329390/194783453-a2e12453-746f-44f2-ad3f-98e2421aa2ef.png)
-
-
+![Untitled Diagram-Page-9 drawio](https://user-images.githubusercontent.com/112329390/194925005-80122032-7397-4de6-a9ba-c87750f959be.png)
 
 
 •	Create Entity Relationship Diagrams
 
-![erd](https://user-images.githubusercontent.com/112329390/194874986-424a8bf4-54b2-49a4-aaec-2dad4fa888df.png)
+![Untitled Diagram-Page-10 drawio](https://user-images.githubusercontent.com/112329390/194924928-85b56d58-3bca-4273-afe3-67f3c6405f3b.png)
 
 • Schedule of week
 Monday -approval, work on boilerplate, set up repository, seed file, models
