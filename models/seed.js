@@ -10,7 +10,7 @@ db.on('open', () => {
         hasMeat: true,
         glutenFree: true,},
         {name: 'Chicken Continental', planBased:'false', vegetarian:'false', dairyFree: 'false', hasMeat: 'true', glutenFree:'false' },
-        {name: 'Apple Pie', planBased:'false', vegetarian:'true', dairyFree: 'false', hasMeat: 'fasle', glutenFree:'false' },
+        {name: 'Apple Pie', planBased:'false', vegetarian:'true', dairyFree: 'false', hasMeat: 'false', glutenFree:'false' },
         {name: 'Lasagna', planBased:'false', vegetarian:'false', dairyFree: 'false', hasMeat: 'true', glutenFree:'false' },
         {name: 'Nestle Chocolate Chip Cookies', planBased:'false', vegetarian:'true', dairyFree: 'false', hasMeat: 'false', glutenFree:'false' },
         {name: 'Brownies', planBased:'false', vegetarian:'true', dairyFree: 'false', hasMeat: 'false', glutenFree:'false' },
@@ -22,10 +22,10 @@ db.on('open', () => {
 
 Recipe.deleteMany({})
     .then(deleteRecipes => {
-        console.log('.deleteMany returns', deletedRecipes)
+        console.log('testing this function')
         Recipe.create(startRecipes)
             .then((data) => {
-                console.log('new seeded fruits', data)
+                console.log('new seeded recipes', data)
                 db.close()
             })
     .catch(error => {
