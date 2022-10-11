@@ -9,23 +9,39 @@
             <div class="card-body">
                 <p class="card-text">
                     {%- comment -%} Plant Based {{ recipe.plantBased }} {%- endcomment -%}
-                     {% if recipe.plantBased %}
-                Plant Based
-              {% else %}
-                Not plant based
-              {% endif %}
+                    {% if recipe.plantBased %}
+                        Plant Based
+                    {% else %}
+                        Not plant based
+                    {% endif %}
                 </p>
                 <p class="card-text">
-                    Vegetarian {{ recipe.vegetarian }}
+                    {% if recipe.vegitarian %}
+                        vegetarian
+                    {% else %}
+                        Not vegetarian 
+                    {% endif %}
                 </p>
                 <p class="card-text">
-                    Dairy Free {{ recipe.dairyFree }}
+                   {% if recipe.dairyFree %}
+                        Dairy free
+                    {% else %}
+                        Not dairy free
+                    {% endif %}
                 </p>
                 <p class="card-text">
-                    Meat {{ recipe.hasmeat }}
+                    {% if recipe.hasMeat %}
+                        Contains meat
+                    {% else %}
+                        No meat
+                    {% endif %}
                 </p>
                 <p class="card-text">
-                    Gluten Free {{ recipe.glutenFree }}
+                    {% if recipe.hasGluten %}
+                        Gluten free
+                    {% else %}
+                        Not gluten free
+                    {% endif %}
                 </p>
                 <a href="/recipes/{{ recipe.id }}" class="btn btn-info">
                     View {{ recipe.name }}

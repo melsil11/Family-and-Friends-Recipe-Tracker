@@ -24,6 +24,7 @@ router.use((req, res, next) => {
 // index ALL
 router.get('/', (req, res) => {
 	Recipe.find({})
+		// .populate("comments.author", "username")
 		.then(recipes => {
 			const username = req.session.username
 			const loggedIn = req.session.loggedIn
@@ -35,7 +36,7 @@ router.get('/', (req, res) => {
 		})
 })
 
-// index that shows only the user's recipess
+// index that shows only the user's recipes
 router.get('/mine', (req, res) => {
     // destructure user info from req.session
     const { username, userId, loggedIn } = req.session
@@ -51,18 +52,22 @@ router.get('/mine', (req, res) => {
 // new route -> GET route that renders our page with the form
 router.get('/new', (req, res) => {
 	const { username, userId, loggedIn } = req.session
-	res.render('recipes/new', { username, loggedIn })
+	res.render('recipes/new', { username, loggedIn, userId })
 })
 
 // create -> POST route that actually calls the db and makes a new document
 router.post('/', (req, res) => {
-	req.body.ready = req.body.ready === 'on' ? true : false
+	req.body.plantBased = req.body.plantBased === 'on' ? true : false
+	req.body.vegetarian = req.body.vegetarian === 'on' ? true : false
+	req.body.dairyFree = req.body.dairyFree === 'on' ? true : false
+	req.body.hasMeat = req.body.hasMeat === 'on' ? true : false
+	req.body.glutenFree = req.body.glutenFree === 'on' ? true : false
 
 	req.body.owner = req.session.userId
 	Recipe.create(req.body)
 		.then(recipe => {
 			console.log('this was returned from create', recipe)
-			res.redirect('/recipess')
+			res.redirect('/recipes')
 		})
 		.catch(error => {
 			res.redirect(`/error?error=${error}`)
@@ -73,9 +78,13 @@ router.post('/', (req, res) => {
 router.get('/:id/edit', (req, res) => {
 	// we need to get the id
 	const recipeId = req.params.id
+
+	const username = req.session.username
+    const loggedIn = req.session.loggedIn
+    const userId = req.session.userId
 	Recipe.findById(recipeId)
 		.then(recipe => {
-			res.render('recipess/edit', { recipe })
+			res.render('recipes/edit', { recipe, username, loggedIn, userId })
 		})
 		.catch((error) => {
 			res.redirect(`/error?error=${error}`)
@@ -85,11 +94,15 @@ router.get('/:id/edit', (req, res) => {
 // update route
 router.put('/:id', (req, res) => {
 	const recipeId = req.params.id
-	req.body.ready = req.body.ready === 'on' ? true : false
+	req.body.plantBased = req.body.plantBased === 'on' ? true : false
+	req.body.vegetarian = req.body.vegetarian === 'on' ? true : false
+	req.body.dairyFree = req.body.dairyFree === 'on' ? true : false
+	req.body.hasMeat = req.body.hasMeat === 'on' ? true : false
+	req.body.glutenFree = req.body.glutenFree === 'on' ? true : false
 
 	Recipe.findByIdAndUpdate(recipeId, req.body, { new: true })
 		.then(recipe => {
-			res.redirect(`/recipess/${recipe.id}`)
+			res.redirect(`/recipes/${recipe.id}`)
 		})
 		.catch((error) => {
 			res.redirect(`/error?error=${error}`)
@@ -102,7 +115,7 @@ router.get('/:id', (req, res) => {
 	Recipe.findById(recipeId)
 		.then(recipe => {
             const {username, loggedIn, userId} = req.session
-			res.render('recipess/show', { recipe, username, loggedIn, userId })
+			res.render('recipes/show', { recipe, username, loggedIn, userId })
 		})
 		.catch((error) => {
 			res.redirect(`/error?error=${error}`)

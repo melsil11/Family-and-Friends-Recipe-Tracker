@@ -1,43 +1,51 @@
 {% layout 'layout.liquid' %}
 {% block content %}
 <div class="container-sm">
-    <form action="/examples" method="POST">
+    <form action="/recipes/{{recipes.id}}?_method=PUT" method="POST"></form>
         <fieldset>
-            <legend>Create New Example</legend>
-            <label class="form-label">Title: </label>
-            <input 
-                type="text" 
-                name="title" 
-                placeholder="{{ example.title }}"
-                value="{{ example.title }}"
-                class="form-control"
-            >
-            <label class="form-label">Body:</label>
-            <input 
-                type="text" 
-                name="body" 
-                placeholder="{{ example.body }}" 
-                value="{{ example.body }}" 
-                class="form-control"
-            >
-            <label class="form-label">Amount:</label>
-            <input 
-                type="number" 
-                name="amount"
-                value="{{ example.amount }}"
-                class="form-control"
-            >
-            <label class="form-label">Ready:</label>
+            <legend>Edit {{recipe.name}}</legend>
+            <label class="form-label">Name: </label>
+            <input class="form-control" type="text" name="name" placeholder="enter the name of the recipe" value="{{ recipe.name }}">
+
+            <label class="form-label">Plant Based:</label>
             <input 
                 type="checkbox" 
-                name="ready" 
+                name="plantBased" 
                 class="form-check-input"
-                {% if example.ready %}
+                {% if recipe.plantBased %}
                     checked
-                {% endif %}
-            >
+                {% endif %}>
+            <input 
+                type="checkbox" 
+                name="vegetarian" 
+                class="form-check-input"
+                {% if recipe.vegetarian %}
+                    checked
+                {% endif %}>
+            <input 
+                type="checkbox" 
+                name="dairyFree" 
+                class="form-check-input"
+                {% if recipe.dairyFree %}
+                    checked
+                {% endif %}>
+            <input 
+                type="checkbox" 
+                name="hasMeat" 
+                class="form-check-input"
+                {% if recipe.hasMeat %}
+                    checked
+                {% endif %}>
+            <input 
+                type="checkbox" 
+                name="glutenFree" 
+                class="form-check-input"
+                {% if recipe.glutenFree %}
+                    checked
+                {% endif %}>
+            
         </fieldset>
-        <input type="submit" value="Edit Example" class="btn btn-success">
+        <input type="submit" value="Edit recipe {{recipe.name}}" class="btn btn-success">
     </form>
 </div>
 {% endblock %}
