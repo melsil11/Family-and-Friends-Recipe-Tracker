@@ -1,0 +1,38 @@
+{% layout 'layout.liquid'%}
+{% block content %}
+<div>
+    <h2 class="display-6">All Recipes</h2>
+    <div class="row">
+        {% for recipe in recipes %}
+        <div class="card" style="width: 18rem;">
+            <h5 class="card-header">{{ recipe.name }}</h5>
+            <div class="card-body">
+                <p class="card-text">
+                    {%- comment -%} Plant Based {{ recipe.plantBased }} {%- endcomment -%}
+                     {% if recipe.plantBased %}
+                Plant Based
+              {% else %}
+                Not plant based
+              {% endif %}
+                </p>
+                <p class="card-text">
+                    Vegetarian {{ recipe.vegetarian }}
+                </p>
+                <p class="card-text">
+                    Dairy Free {{ recipe.dairyFree }}
+                </p>
+                <p class="card-text">
+                    Meat {{ recipe.hasmeat }}
+                </p>
+                <p class="card-text">
+                    Gluten Free {{ recipe.glutenFree }}
+                </p>
+                <a href="/recipes/{{ recipe.id }}" class="btn btn-info">
+                    View {{ recipe.name }}
+                </a>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
