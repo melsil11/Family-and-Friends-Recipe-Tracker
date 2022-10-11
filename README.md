@@ -57,22 +57,4 @@ Tuesday -work on routes and connections
 Wednesday -make sure connections and routes are working
 Thursady - work on front end, liquid, bootstraps
 Friday - finalize design, clean up and debug
-=======
 
-Monday -approval, work on boilerplate, set up repository, seed file, models
-Tuesday -work on routes and connections 
-Wednesday -make sure connections and routes are working
-Thursady - work on front end, liquid, bootstraps
-Friday - finalize design, clean up and debug
-
-
->>>>>>> day1
-=======
-
-Monday -approval, work on boilerplate, set up repository, seed file, models
-Tuesday -work on routes and connections 
-Wednesday -make sure connections and routes are working
-Thursady - work on front end, liquid, bootstraps
-Friday - finalize design, clean up and debug
-
->>>>>>> refs/remotes/origin/main
