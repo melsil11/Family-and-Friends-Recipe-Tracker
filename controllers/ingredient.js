@@ -1,7 +1,27 @@
 const express = require("express")
 const Recipe = require("../models/recipe")
-
+const Ingredient = require("../models/ingredients.js")
 const router = express.Router()
+// find a recipe by id then create a new ingredient
+router.post(':id', (req, res) => {
+    const recipeId = req.params.id 
+    req.body.owner = req.session.userId
+    const newIngredient = {ingredient: req.body.ingredient}
+    Recipe.findById(recipeId)
+    .then((recipe) => {
+        recipe.ingredients.push(req.body)
+        return recipe.save()
+    })
+    .then(recipe =>{
+        res.redirect(`/recipe/${recipe.id}`)
+    })
+    .catch((error) => {
+        console.log(error)
+    })
+})
+
+
+
 
 // Post
 router.post('/:recipeId', (req, res) => {

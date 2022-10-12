@@ -64,14 +64,14 @@ router.post('/', (req, res) => {
 	req.body.glutenFree = req.body.glutenFree === 'on' ? true : false
 
 	req.body.owner = req.session.userId
-	// we need to rethink how the ingredients are working in theis route
+	// we need to rethink how the ingredients are working in this route
 	// because of the many to many relationship we need to use the id's of the existing ingredients and put them into an array below recipe.ingredient array
 	// instead of an array push after creation i can build the array before creating the recipe document
-	const ingredientName = req.body.ingredientName
-	const ingredients = [objectID]
+	// const ingredientName = req.body.ingredientName
+	// const ingredients = req.body.ingredientObjectID
 	Recipe.create(req.body)
 		.then(recipe => {
-			recipe.ingredients.push(ingredients)
+			// recipe.ingredients.push(ingredients)
 			console.log('this was returned from create', recipe)
 			res.redirect('/recipes')
 		})
@@ -121,6 +121,7 @@ router.put('/:id', (req, res) => {
 router.get('/:id', (req, res) => {
 	const recipeId = req.params.id
 	Recipe.findById(recipeId)
+		.populate("ingredients")
 		.then(recipe => {
             const {username, loggedIn, userId} = req.session
 			res.render('recipes/show', { recipe, username, loggedIn, userId })
