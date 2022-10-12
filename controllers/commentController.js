@@ -12,11 +12,12 @@ router.post('/:recipeId', (req, res) => {
     } else {
         res.sendStatus(401)
     }
-
+    // console.log('did I make it')
     Recipe.findById(recipeId)
     .then(recipe => {
         recipe.comments.push(req.body)
         return recipe.save()
+        
     })
     .then(recipe => {
         res.redirect(`/recipes/${recipe.id}`)

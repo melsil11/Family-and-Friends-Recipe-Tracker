@@ -24,12 +24,12 @@ router.use((req, res, next) => {
 // index ALL
 router.get('/', (req, res) => {
 	Recipe.find({})
-		// .populate("comments.author", "username")
+		.populate("comments.author", "username")
 		.then(recipes => {
 			const username = req.session.username
 			const loggedIn = req.session.loggedIn
-			
-			res.render('recipes/index', { recipes, username, loggedIn })
+			const userId = req.session.userId
+			res.render('recipes/index', { recipes, username, loggedIn, userId })
 		})
 		.catch(error => {
 			res.redirect(`/error?error=${error}`)

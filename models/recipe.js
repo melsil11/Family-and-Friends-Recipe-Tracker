@@ -12,8 +12,7 @@ const { Schema, model } = mongoose
 
 
 
-const recipeSchema = new Schema(
-	{
+const recipeSchema = new Schema({
 		name: String,
 		plantBased: Boolean,
 		vegetarian: Boolean,
@@ -23,10 +22,10 @@ const recipeSchema = new Schema(
 		// ingredients: [ingredientSchema],
 		owner: {
 			type: Schema.Types.ObjectID,
-			ref: 'User',
-		}
-		// comments: [commentSchema]
-	},	{ timestamps: true })
+			ref: 'User'
+},
+comments: [commentSchema]
+}, { timestamps: true })
 
 const Recipe = model('Recipe', recipeSchema)
 
