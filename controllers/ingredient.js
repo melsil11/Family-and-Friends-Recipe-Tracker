@@ -15,7 +15,7 @@ router.post('/:recipeId', (req, res) => {
     // console.log('did I make it')
     Recipe.findById(recipeId)
     .then(recipe => {
-        recipe.comments.push(req.body)
+        recipe.ingredients.push(req.body)
         return recipe.save()
         
     })
@@ -27,17 +27,17 @@ router.post('/:recipeId', (req, res) => {
 
 // Delete
 
-router.delete('/delete/:recipeId/:commId', (req, res) => {
+router.delete('/delete/:recipeId/:ingredientId', (req, res) => {
     const recipeId = req.params.recipeId
-    const commId = req.params.commId
+    const ingredientId = req.params.ingredientId
 
     Recipe.findById(recipeId)
         .then(recipe => {
-            const theComment = recipe.comments.id(commId)
+            const theIngredient = recipe.ingredients.id(ingredientId)
 
             if (req.session.loggedIn) {
-                if (theComment.author == req.session.userId) {
-                    theComment.remove()
+                if (theIngredient.author == req.session.userId) {
+                    theIngredient.remove()
                     recipe.save()
                     res.redirect(`/recipes/${recipe.id}`)    
                 } else {

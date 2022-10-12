@@ -5,7 +5,7 @@ const db = mongoose.connection
 
 db.on('open', () => {
     const startIngredients = [
-        {name:'salt'}
+        {name:'a whole lotta love'}
     ]
 
     Ingredient.deleteMany({})
