@@ -47,9 +47,12 @@
                 {% if recipe.glutenFree %}
                     checked
                 {% endif %}>
-            
+            <label class="form-label">Ingredients: </label>
+            <input class="form-control" type="text" name="name" placeholder="enter the ingredients" value="{{ ingredient.name }}">
+             <a href="/recipes/{{ recipe.id }}" class="btn btn-primary">Edit</a>
         </fieldset>
-        <input type="submit" value="Edit recipe {{recipe.name}}" class="btn btn-success">
+        {%- comment -%} <input type="submit" value="Edit {{recipe.name}}" class="btn btn-success"> {%- endcomment -%}
+
     </form>
 </div>
 {% endblock %}

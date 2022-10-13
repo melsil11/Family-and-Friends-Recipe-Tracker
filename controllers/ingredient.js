@@ -1,75 +1,76 @@
+// Import Dependencies
 const express = require("express")
 const Recipe = require("../models/recipe")
 const Ingredient = require("../models/ingredients.js")
+// Create router
 const router = express.Router()
-// find a recipe by id then create a new ingredient
-router.post(':id', (req, res) => {
-    const recipeId = req.params.id 
+
+// Router Middleware
+router.use((req, res, next) => {
+	// checking the loggedIn boolean of our session
+	if (req.session.loggedIn) {
+		// if they're logged in, go to the next thing(thats the controller)
+		next()
+	} else {
+		// if they're not logged in, send them to the login page
+		res.redirect('/auth/login')
+	}
+})
+
+// index ALL
+router.get('/', (req, res) => {
+	Ingredient.find({})
+		// .populate("comments.author", "username")
+		.then(ingredients => {
+			const username = req.session.username
+			const loggedIn = req.session.loggedIn
+			const userId = req.session.userId
+			res.render('ingredients/index', { ingredients, username, loggedIn, userId })
+		})
+		.catch(error => {
+			res.redirect(`/error?error=${error}`)
+		})
+})
+
+// create POST
+router.post('/', (req, res) => {
     req.body.owner = req.session.userId
-    const newIngredient = {ingredient: req.body.ingredient}
-    Recipe.findById(recipeId)
-    .then((recipe) => {
-        recipe.ingredients.push(req.body)
-        return recipe.save()
-    })
-    .then(recipe =>{
-        res.redirect(`/recipe/${recipe.id}`)
-    })
-    .catch((error) => {
-        console.log(error)
-    })
-})
-
-
-
-
-// Post
-router.post('/:recipeId', (req, res) => {
-    const recipeId = req.params.recipeId
-
-    if (req.session.loggedIn){
-        req.body.author = req.session.userId
-    } else {
-        res.sendStatus(401)
-    }
-    // console.log('did I make it')
-    Recipe.findById(recipeId)
-    .then(recipe => {
-        recipe.ingredients.push(req.body)
-        return recipe.save()
-        
-    })
-    .then(recipe => {
-        res.redirect(`/recipes/${recipe.id}`)
-    })
-    .catch(err => res.redirect(`/error?error=${err}`))
-})
-
-// Delete
-
-router.delete('/delete/:recipeId/:ingredientId', (req, res) => {
-    const recipeId = req.params.recipeId
-    const ingredientId = req.params.ingredientId
-
-    Recipe.findById(recipeId)
-        .then(recipe => {
-            const theIngredient = recipe.ingredients.id(ingredientId)
-
-            if (req.session.loggedIn) {
-                if (theIngredient.author == req.session.userId) {
-                    theIngredient.remove()
-                    recipe.save()
-                    res.redirect(`/recipes/${recipe.id}`)    
-                } else {
-                const err = 'you%20are%20not%20authorized%20for%20this%20action'
-                res.redirect(`/error?error=${err}`)
-                }
-            } else {
-            const err = 'you%20are%20not%20authorized%20for%20this%20action'
-            res.redirect(`/error?error=${err}`)
-            }
+    Ingredient.create(req.body)
+		.then(ingredient => {
+            console.log('this was returned from create', Ingredient)
+			res.redirect('/ingredients')
         })
-        .catch(err => res.redirect(`/error?error=${err}`))
+		.catch(error => {
+			res.redirect(`/error?error=${error}`)
+		})
 })
 
-module.exports = router
+// edit route -> GET that takes us to the edit form view
+router.get('/:id/edit', (req, res) => {
+	// we need to get the id
+	const ingredientId = req.params.id
+
+	const username = req.session.username
+    const loggedIn = req.session.loggedIn
+    const userId = req.session.userId
+	Ingredient.findById(ingredientId)
+		.then(ingredient => {
+			res.render('ingredients/edit', { ingredient, username, loggedIn, userId })
+		})
+		.catch((error) => {
+			res.redirect(`/error?error=${error}`)
+		})
+})
+
+// update route
+router.put('/:id', (req, res) => {
+	const ingredientId = req.params.id
+
+	Ingredient.findByIdAndUpdate(ingredientId, req.body, { new: true })
+		.then(ingredient => {
+			res.redirect(`/ingredients/${ingredient.id}`)
+		})
+		.catch((error) => {
+			res.redirect(`/error?error=${error}`)
+		})
+})

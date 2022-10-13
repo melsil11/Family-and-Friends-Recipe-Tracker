@@ -1,6 +1,7 @@
 // Import Dependencies
 const express = require('express')
 const Recipe = require('../models/recipe')
+const Ingredient = require('../models/ingredients')
 
 // Create router
 const router = express.Router()
@@ -71,8 +72,9 @@ router.post('/', (req, res) => {
 	// const ingredients = req.body.ingredientObjectID
 	Recipe.create(req.body)
 		.then(recipe => {
+			
 			// recipe.ingredients.push(ingredients)
-			console.log('this was returned from create', recipe)
+			// console.log('this was returned from create', recipe)
 			res.redirect('/recipes')
 		})
 		.catch(error => {
@@ -105,9 +107,8 @@ router.put('/:id', (req, res) => {
 	req.body.dairyFree = req.body.dairyFree === 'on' ? true : false
 	req.body.hasMeat = req.body.hasMeat === 'on' ? true : false
 	req.body.glutenFree = req.body.glutenFree === 'on' ? true : false
-	const ingredientName = req.body.ingredientName
-	const ingredients = {name: ingredientName}
-
+	console.log('req.body after changing checkbox value', req.body)
+	
 	Recipe.findByIdAndUpdate(recipeId, req.body, { new: true })
 		.then(recipe => {
 			res.redirect(`/recipes/${recipe.id}`)

@@ -17,7 +17,7 @@ const recipeSchema = new Schema({
 		// ingredients is a one to many relations ship and should be used in a different way than a subdocument
 		ingredients: [{type: Schema.Types.ObjectID,
 			ref: 'Ingredient'}],
-		// ingredients:[{type: String}],
+		
 		owner: {
 			type: Schema.Types.ObjectID,
 			ref: 'User'
