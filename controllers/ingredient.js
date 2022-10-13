@@ -25,7 +25,30 @@ router.get('/', (req, res) => {
 			const username = req.session.username
 			const loggedIn = req.session.loggedIn
 			const userId = req.session.userId
-			res.render('ingredients/index', { ingredients, username, loggedIn, userId })
+			res.render('ingredients/index', 
+			{ ingredients, username, loggedIn, userId })
+		
+			// res.json({ingredients: ingredients })
+		})
+		.catch(error => {
+			res.redirect(`/error?error=${error}`)
+		})
+})
+
+// new route -> GET route that renders our page with the form
+router.get('/new', (req, res) => {
+	const { username, userId, loggedIn } = req.session
+	res.render('ingredient/new', { username, loggedIn, userId })
+})
+
+
+// index that shows only the user's ingredients
+router.get('/mine', (req, res) => {
+    // destructure user info from req.session
+    const { username, userId, loggedIn } = req.session
+	Ingredient.find({ owner: userId })
+		.then(ingredients => {
+			res.render('ingredients/index', { ingredients, username, loggedIn })
 		})
 		.catch(error => {
 			res.redirect(`/error?error=${error}`)
@@ -39,11 +62,34 @@ router.post('/', (req, res) => {
 		.then(ingredient => {
             console.log('this was returned from create', Ingredient)
 			res.redirect('/ingredients')
+			// res.json({ ingredient: ingredient })
         })
 		.catch(error => {
 			res.redirect(`/error?error=${error}`)
 		})
 })
+
+
+// router.post('/:recipeId', (req, res) => {
+//     const recipeId = req.params.recipeId
+
+//     if (req.session.loggedIn){
+//         req.body.author = req.session.userId
+//     } else {
+//         res.sendStatus(401)
+//     }
+//     // console.log('did I make it')
+//     Recipe.findById(recipeId)
+//     .then(recipe => {
+//         recipe.ingredients.push(req.body)
+//         return recipe.save()
+        
+//     })
+//     .then(recipe => {
+//         res.redirect(`/recipes/${recipe.id}`)
+//     })
+//     .catch(err => res.redirect(`/error?error=${err}`))
+// })
 
 // edit route -> GET that takes us to the edit form view
 router.get('/:id/edit', (req, res) => {
@@ -74,3 +120,33 @@ router.put('/:id', (req, res) => {
 			res.redirect(`/error?error=${error}`)
 		})
 })
+
+// show route
+router.get('/:id', (req, res) => {
+	const ingredientId = req.params.id
+	Ingredient.findById(ingredientId)
+		// .populate("ingredients")
+		.then(ingredient => {
+            const {username, loggedIn, userId} = req.session
+			res.render('ingredients/show', { ingredient, username, loggedIn, userId })
+		})
+		.catch((error) => {
+			res.redirect(`/error?error=${error}`)
+		})
+})
+
+//  delete route
+router.delete('/:id', (req, res) => {
+	const ingredientId = req.params.id
+	Ingredient.findByIdAndRemove(ingredientId)
+		.then(ingredient => {
+			res.redirect('/ingredient')
+		})
+		.catch(error => {
+			res.redirect(`/error?error=${error}`)
+		})
+})
+
+
+// Export the Router
+module.exports = router

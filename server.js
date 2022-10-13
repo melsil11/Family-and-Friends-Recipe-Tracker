@@ -5,10 +5,12 @@ require("dotenv").config() // make env variables available
 const express = require("express")
 const path = require("path") 
 const RecipeRouter = require('./controllers/recipes')
+const IngredientRouter = require('./controllers/ingredient')
 const UserRouter = require('./controllers/user')
 const User = require("./models/user")
 const CommentRouter = require('./controllers/commentController.js')
 const middleware = require('./utils/middleware')
+
 // SEE MORE DEPENDENCIES IN ./utils/middleware.js
 // user and resource routes linked in ./utils/middleware.js
 
@@ -25,7 +27,7 @@ middleware(app)
 
 app.use('/auth', UserRouter)
 app.use('/recipes', RecipeRouter)
-// app.use('/ingredients')
+app.use('/ingredients', IngredientRouter)
 app.use('/users', UserRouter)
 app.use('/comments', CommentRouter)
 
