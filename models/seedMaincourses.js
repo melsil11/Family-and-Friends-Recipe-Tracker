@@ -1,5 +1,5 @@
 const mongoose = require('./connection')
-const Maincourse = require('./maincourses')
+const Maincourse = require('./maincourse')
 
 const db = mongoose.connection
 

@@ -1,18 +1,18 @@
 {% layout 'layout.liquid' %}
 {% block content %}
 <div class="container-sm">
-    <form action="/recipes/{{recipes.id}}?_method=PUT" method="POST"></form>
+    <form action="/maincourses/{{maincourses.id}}?_method=PUT" method="POST"></form>
         <fieldset>
-            <legend>Edit {{recipe.name}}</legend>
+            <legend>Edit {{maincourse.name}}</legend>
             <label class="form-label">Name: </label>
-            <input class="form-control" type="text" name="name" placeholder="enter the name of the recipe" value="{{ recipe.name }}">
+            <input class="form-control" type="text" name="name" placeholder="enter the name of the maincourse" value="{{ maincourse.name }}">
 
             <label class="form-label">Plant Based:</label>
             <input 
                 type="checkbox" 
                 name="plantBased" 
                 class="form-check-input"
-                {% if recipe.plantBased %}
+                {% if maincourse.plantBased %}
                     checked
                 {% endif %}>
              <label class="form-label">Vegetarian:</label>
@@ -20,7 +20,7 @@
                 type="checkbox" 
                 name="vegetarian" 
                 class="form-check-input"
-                {% if recipe.vegetarian %}
+                {% if maincourse.vegetarian %}
                     checked
                 {% endif %}>
             <label class="form-label">Dairy Free:</label>
@@ -28,7 +28,7 @@
                 type="checkbox" 
                 name="dairyFree" 
                 class="form-check-input"
-                {% if recipe.dairyFree %}
+                {% if maincourse.dairyFree %}
                     checked
                 {% endif %}>
             <label class="form-label">Meat:</label>
@@ -36,7 +36,7 @@
                 type="checkbox" 
                 name="hasMeat" 
                 class="form-check-input"
-                {% if recipe.hasMeat %}
+                {% if maincourse.hasMeat %}
                     checked
                 {% endif %}>
             <label class="form-label">Gluten:</label>
@@ -44,12 +44,12 @@
                 type="checkbox" 
                 name="glutenFree" 
                 class="form-check-input"
-                {% if recipe.glutenFree %}
+                {% if maincourse.glutenFree %}
                     checked
                 {% endif %}>
             
         </fieldset>
-        <input type="submit" value="Edit recipe {{recipe.name}}" class="btn btn-success">
+        <input type="submit" value="Edit maincourse {{maincourse.name}}" class="btn btn-success">
     </form>
 </div>
 {% endblock %}

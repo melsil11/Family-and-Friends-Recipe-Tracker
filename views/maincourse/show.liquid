@@ -3,48 +3,49 @@
 <div class="container-md">
     <article>
         <h2>
-            {{ recipe.name }}    
+            {{ maincourse.name }}    
         </h2>
          <p class="card-text">
-            {% if recipe.plantBased %}
+            {% if maincourse.plantBased %}
                 Plant Based
             {% else %}
                 Not plant based
             {% endif %}
         </p>
         <p class="card-text">
-            {% if recipe.vegitarian %}
+            {% if maincourse.vegitarian %}
                 vegetarian
             {% else %}
                 Not vegetarian 
             {% endif %}
         </p>
         <p class="card-text">
-            {% if recipe.dairyFree %}
+            {% if maincourse.dairyFree %}
                 Dairy free
             {% else %}
                 Not dairy free
             {% endif %}
         </p>
         <p class="card-text">
-             {% if recipe.hasMeat %}
+             {% if maincourse.hasMeat %}
                 Contains meat
             {% else %}
                 No meat
             {% endif %}
         </p>
         <p class="card-text">
-             {% if recipe.hasGluten %}
+             {% if maincourse.hasGluten %}
                 Gluten free
             {% else %}
                 Not gluten free
             {% endif %}
         </p>
-        {% if recipe.owner == userId %}
+        <h4>Ingredients: {{maincourse.name}} </h4>
+        {% if maincourse.owner == userId %}
         <div class="btn-group">
 
-            <a href="/recipes/{{ recipe.id }}/edit" class="btn btn-primary">Edit</a>
-            <form action="/recipes/{{ recipe.id }}?_method=DELETE" method="POST">
+            <a href="/maincourses/{{ maincourse.id }}/edit" class="btn btn-primary">Edit</a>
+            <form action="/maincourses/{{ maincourse.id }}?_method=DELETE" method="POST">
                 <input type="submit" value="Delete" class="btn btn-danger">
             </form>
         </div>
@@ -55,7 +56,7 @@
     <hr>
     {% if loggedIn %}
       <div class="col-md-6">
-        <form action="/comments/{{recipe.id}}" method="POST">
+        <form action="/comments/{{maincourse.id}}" method="POST">
           <fieldset>
             <legend>Add Comment</legend>
             <label class="form-label">comment:</label>
@@ -70,11 +71,11 @@
       </div>
     {% endif %}
     <hr>
-    {% if recipe.comments.length > 0%}
+    {% if maincourse.comments.length > 0%}
       <div class="container-sm justify-content-center">
         <div class="col-md-8 col-lg-6">
-          {% for comment in recipe.comments %}
-            {% render '../comment.liquid', comment: comment, userId: userId, recipe: recipe %}
+          {% for comment in maincourse.comments %}
+            {% render '../comment.liquid', comment: comment, userId: userId, maincourse: maincourse %}
           {% endfor %}
         </div>
       </div>

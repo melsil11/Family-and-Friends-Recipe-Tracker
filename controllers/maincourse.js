@@ -62,8 +62,8 @@ router.post('/', (req, res) => {
 	req.body.dairyFree = req.body.dairyFree === 'on' ? true : false
 	req.body.hasMeat = req.body.hasMeat === 'on' ? true : false
 	req.body.glutenFree = req.body.glutenFree === 'on' ? true : false
-
 	req.body.owner = req.session.userId
+	console.log('the maincourse from the form', req.body)
 	Maincourse.create(req.body)
 		.then(maincourse => {
 			console.log('this was returned from create', maincourse)
@@ -100,7 +100,7 @@ router.put('/:id', (req, res) => {
 	req.body.hasMeat = req.body.hasMeat === 'on' ? true : false
 	req.body.glutenFree = req.body.glutenFree === 'on' ? true : false
 
-	Maincourse.findByIdAndUpdate(maincourseId, req.body, { new: true })
+	Maincourse.findById(maincourseId, req.body, { new: true })
 		.then(maincourse => {
 			res.redirect(`/maincourses/${maincourse.id}`)
 		})

@@ -1,50 +1,51 @@
 {% layout 'layout.liquid'%}
 {% block content %}
 <div>
-    <h2 class="display-6">All Recipes</h2>
+    <h2 class="display-6">All Maincourses</h2>
     <div class="row">
-        {% for recipe in recipes %}
+        {% for maincourse in maincourses %}
         <div class="card" style="width: 18rem;">
-            <h5 class="card-header">{{ recipe.name }}</h5>
+            <h5 class="card-header">{{ maincourse.name }}</h5>
             <div class="card-body">
                 <p class="card-text">
-                    {%- comment -%} Plant Based {{ recipe.plantBased }} {%- endcomment -%}
-                    {% if recipe.plantBased %}
+                    {%- comment -%} Plant Based {{ maincourse.plantBased }} {%- endcomment -%}
+                    {% if maincourse.plantBased %}
                         Plant Based
                     {% else %}
                         Not plant based
                     {% endif %}
                 </p>
                 <p class="card-text">
-                    {% if recipe.vegitarian %}
+                    {% if maincourse.vegitarian %}
                         vegetarian
                     {% else %}
                         Not vegetarian 
                     {% endif %}
                 </p>
                 <p class="card-text">
-                   {% if recipe.dairyFree %}
+                   {% if maincourse.dairyFree %}
                         Dairy free
                     {% else %}
                         Not dairy free
                     {% endif %}
                 </p>
                 <p class="card-text">
-                    {% if recipe.hasMeat %}
+                    {% if maincourse.hasMeat %}
                         Contains meat
                     {% else %}
                         No meat
                     {% endif %}
                 </p>
                 <p class="card-text">
-                    {% if recipe.hasGluten %}
+                    {% if maincourse.hasGluten %}
                         Gluten free
                     {% else %}
                         Not gluten free
                     {% endif %}
+                 <h5 class="card-header">{{ ingredients.name }}</h5>
                 </p>
-                <a href="/recipes/{{ recipe.id }}" class="btn btn-info">
-                    View {{ recipe.name }}
+                <a href="/maincourses/{{ maincourse.id }}" class="btn btn-info">
+                    View {{ maincourse.name }}
                 </a>
             </div>
         </div>
