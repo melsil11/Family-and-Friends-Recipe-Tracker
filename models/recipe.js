@@ -14,9 +14,7 @@ const recipeSchema = new Schema({
 		dairyFree: Boolean,
 		hasMeat: Boolean,
 		glutenFree: Boolean,
-		// ingredients is a one to many relations ship and should be used in a different way than a subdocument
-		ingredients: [{type: Schema.Types.ObjectID,
-			ref: 'Ingredient'}],
+		ingredients: String,
 		
 		owner: {
 			type: Schema.Types.ObjectID,
