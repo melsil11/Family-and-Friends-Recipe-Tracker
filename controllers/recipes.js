@@ -56,8 +56,37 @@ router.get('/new', (req, res) => {
 	res.render('recipes/new', { username, loggedIn, userId })
 })
 
+// custom async function to take a list of ingredients and get the id's
+const ingredientParse = async (ingredientString) => { // function expects comma seperated list as its input
+	console.log('this is the ingredients string that we passed as an argument', ingredientString)
+	const ingredientsArray = ingredientString.toLowerCase().split(",")// breaking the string list into an array of strings via comma's
+	console.log(ingredientsArray, 'this is are ingredients array, after we split')
+	const readFile =(inFile) => {
+		return new Promise((resolve, reject) => {
+			for (let i = 0; i < ingredientsArray.length; i++){ (Recipe.find())}
+			reject (error)	
+		})
+		.then(success)
+		.catch(failure)
+	}
+	const ingIdArray = [] // initialized empty placeholder array for our ingredient id's
+	return await ingredientsArray.map(async (ingString) => { // loop through ingredients array 
+		const ingObject = await Ingredient.find({name: ingString}) //finding the ingredient  that matches the specific name we passed
+		 console.log(ingObject)
+		//  if (ingObject._id) {
+
+		//  }
+		//  ingIdArray.push(ingObject._id) // we are adding the object id into the array
+		return ingObject._id
+	}) 
+	// await console.log(idArray) 
+	// await console.log("this is our return array, it should be our id's")
+	// return (idArray)
+}
+
 // create -> POST route that actually calls the db and makes a new document
-router.post('/', (req, res) => {
+router.post('/', async (req, res) => {
+	
 	req.body.plantBased = req.body.plantBased === 'on' ? true : false
 	req.body.vegetarian = req.body.vegetarian === 'on' ? true : false
 	req.body.dairyFree = req.body.dairyFree === 'on' ? true : false
@@ -65,21 +94,51 @@ router.post('/', (req, res) => {
 	req.body.glutenFree = req.body.glutenFree === 'on' ? true : false
 
 	req.body.owner = req.session.userId
-	// we need to rethink how the ingredients are working in this route
-	// because of the many to many relationship we need to use the id's of the existing ingredients and put them into an array below recipe.ingredient array
-	// instead of an array push after creation i can build the array before creating the recipe document
-	// const ingredientName = req.body.ingredientName
-	// const ingredients = req.body.ingredientObjectID
-	Recipe.create(req.body)
-		.then(recipe => {
+	// const ingredientsArray = req.body.ingredients.toLowerCase().split(",")
+	// console.log(ingredientsArray)
+	// const ingIdArray = []
+	// ingredientsArray.forEach((ingString) => {
+	// 	Ingredient.find({name: ingString})
+	// 		.then((ingObject) => {
+	// 			console.log(ingObject)
+	// 			ingIdArray.push(ingObject._id)
+	// 		})
+	// }) 
 			
-			// recipe.ingredients.push(ingredients)
-			// console.log('this was returned from create', recipe)
-			res.redirect('/recipes')
-		})
-		.catch(error => {
-			res.redirect(`/error?error=${error}`)
-		})
+	// 			req.body.ingredients = ingIdArray
+	// 			console.log(req.body)
+	
+	const tempArray = await ingredientParse(req.body.ingredients)
+	req.body.ingredients = tempArray
+
+				await Recipe.create(req.body)
+					.then((recipe) =>{
+						console.log(recipe)
+					})
+					.then(()=>{
+						res.redirect('/recipes')
+					})
+					
+			
+				
+			
+	// {
+	// 	name: 'a whole lotta love',
+	// 	_id: new ObjectId("63484b0c4cbf5ebe186921a0"),
+	//   },
+	//   {
+	// 	name: 'a little bit of this',
+	// 	_id: new ObjectId("63484b0c4cbf5ebe186921a1"),
+	//   }
+	
+	// Recipe.create(req.body)
+	// 	.then(recipe => {
+	
+	// 		res.redirect('/recipes')
+	// 	})
+	// 	.catch(error => {
+	// 		res.redirect(`/error?error=${error}`)
+	// 	})
 })
 
 // edit route -> GET that takes us to the edit form view
@@ -123,6 +182,7 @@ router.get('/:id', (req, res) => {
 	const recipeId = req.params.id
 	Recipe.findById(recipeId)
 		.populate("ingredients")
+		.populate("comments.author", "username")
 		.then(recipe => {
             const {username, loggedIn, userId} = req.session
 			res.render('recipes/show', { recipe, username, loggedIn, userId })
@@ -137,7 +197,7 @@ router.delete('/:id', (req, res) => {
 	const recipeId = req.params.id
 	Recipe.findByIdAndRemove(recipeId)
 		.then(recipe => {
-			res.redirect('/recipes')
+			res.redirect('/recipes/mine')
 		})
 		.catch(error => {
 			res.redirect(`/error?error=${error}`)

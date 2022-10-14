@@ -25,10 +25,10 @@ router.get('/', (req, res) => {
 			const username = req.session.username
 			const loggedIn = req.session.loggedIn
 			const userId = req.session.userId
-			res.render('ingredients/index', 
-			{ ingredients, username, loggedIn, userId })
+			// res.render('ingredients/index', 
+			// { ingredients, username, loggedIn, userId })
 		
-			// res.json({ingredients: ingredients })
+			res.json({ingredients: ingredients })
 		})
 		.catch(error => {
 			res.redirect(`/error?error=${error}`)
