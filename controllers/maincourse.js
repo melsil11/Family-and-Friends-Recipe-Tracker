@@ -1,6 +1,6 @@
 // Import Dependencies
 const express = require('express')
-const Recipe = require('../models/maincourse')
+const Maincourse = require('../models/maincourse')
 
 // Create router
 const router = express.Router()
@@ -23,26 +23,26 @@ router.use((req, res, next) => {
 
 // index ALL
 router.get('/', (req, res) => {
-	Recipe.find({})
+	Maincourse.find({})
 		.populate("comments.author", "username")
-		.then(recipes => {
+		.then(maincourses => {
 			const username = req.session.username
 			const loggedIn = req.session.loggedIn
 			const userId = req.session.userId
-			res.render('recipes/index', { recipes, username, loggedIn, userId })
+			res.render('maincourses/index', { maincourses, username, loggedIn, userId })
 		})
 		.catch(error => {
 			res.redirect(`/error?error=${error}`)
 		})
 })
 
-// index that shows only the user's recipes
+// index that shows only the user's maincourses
 router.get('/mine', (req, res) => {
     // destructure user info from req.session
     const { username, userId, loggedIn } = req.session
-	Recipe.find({ owner: userId })
-		.then(recipes => {
-			res.render('recipes/index', { recipes, username, loggedIn })
+	Maincourse.find({ owner: userId })
+		.then(maincourses => {
+			res.render('maincourses/index', { maincourses, username, loggedIn })
 		})
 		.catch(error => {
 			res.redirect(`/error?error=${error}`)
@@ -52,7 +52,7 @@ router.get('/mine', (req, res) => {
 // new route -> GET route that renders our page with the form
 router.get('/new', (req, res) => {
 	const { username, userId, loggedIn } = req.session
-	res.render('recipes/new', { username, loggedIn, userId })
+	res.render('maincourses/new', { username, loggedIn, userId })
 })
 
 // create -> POST route that actually calls the db and makes a new document
@@ -64,10 +64,10 @@ router.post('/', (req, res) => {
 	req.body.glutenFree = req.body.glutenFree === 'on' ? true : false
 
 	req.body.owner = req.session.userId
-	Recipe.create(req.body)
-		.then(recipe => {
-			console.log('this was returned from create', recipe)
-			res.redirect('/recipes')
+	Maincourse.create(req.body)
+		.then(maincourse => {
+			console.log('this was returned from create', maincourse)
+			res.redirect('/maincourses')
 		})
 		.catch(error => {
 			res.redirect(`/error?error=${error}`)
@@ -77,14 +77,14 @@ router.post('/', (req, res) => {
 // edit route -> GET that takes us to the edit form view
 router.get('/:id/edit', (req, res) => {
 	// we need to get the id
-	const recipeId = req.params.id
+	const maincourseId = req.params.id
 
 	const username = req.session.username
     const loggedIn = req.session.loggedIn
     const userId = req.session.userId
-	Recipe.findById(recipeId)
-		.then(recipe => {
-			res.render('recipes/edit', { recipe, username, loggedIn, userId })
+	Maincourse.findById(maincourseId)
+		.then(maincourse => {
+			res.render('maincourses/edit', { maincourse, username, loggedIn, userId })
 		})
 		.catch((error) => {
 			res.redirect(`/error?error=${error}`)
@@ -93,14 +93,14 @@ router.get('/:id/edit', (req, res) => {
 
 // update route
 router.put('/:id', (req, res) => {
-	const recipeId = req.params.id
+	const maincourseId = req.params.id
 	req.body.plantBased = req.body.plantBased === 'on' ? true : false
 	req.body.vegetarian = req.body.vegetarian === 'on' ? true : false
 	req.body.dairyFree = req.body.dairyFree === 'on' ? true : false
 	req.body.hasMeat = req.body.hasMeat === 'on' ? true : false
 	req.body.glutenFree = req.body.glutenFree === 'on' ? true : false
 
-	Recipe.findByIdAndUpdate(recipeId, req.body, { new: true })
+	Maincourse.findByIdAndUpdate(recipeId, req.body, { new: true })
 		.then(recipe => {
 			res.redirect(`/recipes/${recipe.id}`)
 		})

@@ -69,7 +69,7 @@ router.post('/login', async (req, res) => {
           			const { username, loggedIn, userId } = req.session
 
 					console.log('session user id', req.session.userId)
-					// redirect to /recipes if login is successful
+					// redirect to /mainecourses if login is successful
 					res.redirect('/')
 				} else {
 					// send an error if the password doesnt match
