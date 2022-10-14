@@ -28,4 +28,4 @@ const Maincourse = model('Maincourse', maincourseSchema)
 /////////////////////////////////
 // Export our Model
 /////////////////////////////////
-module.exports = Mainrcourse
+module.exports = Maincourse

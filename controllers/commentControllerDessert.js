@@ -1,11 +1,11 @@
 const express = require("express")
-const Maincourse = require("../models/maincourse")
+const Dessert = require("../models/dessert")
 
 const router = express.Router()
 
 // Post
-router.post('/:maincourseId', (req, res) => {
-    const maincoureId = req.params.maincourseId
+router.post('/:dessertId', (req, res) => {
+    const maincoureId = req.params.dessertId
 
     if (req.session.loggedIn){
         req.body.author = req.session.userId
@@ -13,33 +13,33 @@ router.post('/:maincourseId', (req, res) => {
         res.sendStatus(401)
     }
     // console.log('did I make it')
-    Maincourse.findById(maincourseId)
-    .then(maincourse => {
-        maincourse.comments.push(req.body)
-        return maincourse.save()
+    Dessert.findById(dessertId)
+    .then(dessert => {
+        dessert.comments.push(req.body)
+        return dessert.save()
         
     })
-    .then(maincourse => {
-        res.redirect(`/maincourses/${maincourse.id}`)
+    .then(dessert => {
+        res.redirect(`/desserts/${dessert.id}`)
     })
     .catch(err => res.redirect(`/error?error=${err}`))
 })
 
 // Delete
 
-router.delete('/delete/:maincourseId/:commId', (req, res) => {
-    const maincourseid = req.params.maincourseId
+router.delete('/delete/:dessertId/:commId', (req, res) => {
+    const dessertid = req.params.dessertId
     const commId = req.params.commId
 
-    Maincourse.findById(maincourseId)
-        .then(maincourse => {
-            const theComment = maincourse.comments.id(commId)
+    Dessert.findById(dessertId)
+        .then(dessert => {
+            const theComment = dessert.comments.id(commId)
 
             if (req.session.loggedIn) {
                 if (theComment.author == req.session.userId) {
                     theComment.remove()
-                    maincourse.save()
-                    res.redirect(`/maincourses/${maincourse.id}`)    
+                    dessert.save()
+                    res.redirect(`/desserts/${dessert.id}`)    
                 } else {
                 const err = 'you%20are%20not%20authorized%20for%20this%20action'
                 res.redirect(`/error?error=${err}`)
