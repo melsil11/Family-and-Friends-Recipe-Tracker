@@ -4,7 +4,7 @@
 require("dotenv").config() // make env variables available
 const express = require("express")
 const path = require("path") 
-const RecipeRouter = require('./controllers/recipes')
+const MaincourseRouter = require('./controllers/maincourses')
 const UserRouter = require('./controllers/user')
 const User = require("./models/user")
 const CommentRouter = require('./controllers/commentController.js')
@@ -24,8 +24,8 @@ middleware(app)
 ////////////////////
 
 app.use('/auth', UserRouter)
-app.use('/recipes', RecipeRouter)
-// app.use('/ingredients')
+app.use('/maincourses', MaincourseRouter)
+// app.use('/desserts')
 app.use('/users', UserRouter)
 app.use('/comments', CommentRouter)
 

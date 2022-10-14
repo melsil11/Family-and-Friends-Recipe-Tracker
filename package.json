@@ -6,10 +6,10 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon server.js",
-    "seed": "node models/seed.js"
+    "seed": "node models/seedMaincourses.js"
   },
   "keywords": [
-    "Recipe, Food, Tracker"
+    "Recipe, Food, Tracker, desserts"
   ],
   "author": "Melanie Silva",
   "license": "ISC",

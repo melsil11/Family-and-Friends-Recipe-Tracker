@@ -1,6 +1,6 @@
 // Import Dependencies
 const express = require('express')
-const Recipe = require('../models/recipe')
+const Recipe = require('../models/maincourse')
 
 // Create router
 const router = express.Router()

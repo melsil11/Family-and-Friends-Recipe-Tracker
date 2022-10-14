@@ -1,6 +1,6 @@
 // import dependencies
 const mongoose = require('./connection')
-const ingredients = require('./ingredients')
+
 // import user model for populate
 const User = require('./user')
 
@@ -12,14 +12,14 @@ const { Schema, model } = mongoose
 
 
 
-const recipeSchema = new Schema({
+const dessertSchema = new Schema({
 		name: String,
 		plantBased: Boolean,
 		vegetarian: Boolean,
 		dairyFree: Boolean,
 		hasMeat: Boolean,
 		glutenFree: Boolean,
-		// ingredients: [ingredientSchema],
+		ingredients: String,
 		owner: {
 			type: Schema.Types.ObjectID,
 			ref: 'User'
@@ -27,9 +27,9 @@ const recipeSchema = new Schema({
 comments: [commentSchema]
 }, { timestamps: true })
 
-const Recipe = model('Recipe', recipeSchema)
+const Dessert = model('Dessert', dessertSchema)
 
 /////////////////////////////////
 // Export our Model
 /////////////////////////////////
-module.exports = Recipe
+module.exports = Dessert

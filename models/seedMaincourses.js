@@ -1,11 +1,11 @@
 const mongoose = require('./connection')
-const Recipe = require('./recipe')
+const Maincourse = require('./maincourses')
 
 const db = mongoose.connection
 
 db.on('open', () => {
 
-    const startRecipes =[
+    const startMaincourses =[
         { name: 'Cal De Galinga', plantBased: false, vegetarian: false, dairyFree: true, hasMeat: true, glutenFree: true },
         { name: 'Chicken Continental', plantBased:false, vegetarian:false, dairyFree: false, hasMeat: true, glutenFree:false },
         { name: 'Apple Pie', plantBased:false, vegetarian:true, dairyFree: false, hasMeat: false, glutenFree:false },
@@ -18,12 +18,12 @@ db.on('open', () => {
         { name: 'Vegan Cornbread', plantBased:true, vegetarian:true, dairyFree: true, hasMeat: false, glutenFree:false },
     ]
 
-Recipe.deleteMany({})
-    .then(deleteRecipes => {
+Maincourse.deleteMany({})
+    .then(deleteMaincourses => {
         console.log('testing this function')
-        Recipe.create(startRecipes)
+        Maincourses.create(startMaincourses)
             .then((data) => {
-                console.log('new seeded recipes', data)
+                console.log('new seeded maincourses', data)
                 db.close()
             })
     .catch(error => {
