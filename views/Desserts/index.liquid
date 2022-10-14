@@ -1,0 +1,56 @@
+{% layout 'layout.liquid'%}
+{% block content %}
+<div>
+    <h2 class="display-6">All Dessertss</h2>
+    <div class="row">
+        {% for dessert in desserts %}
+        <div class="card" style="width: 18rem;">
+            <h5 class="card-header">{{ dessert.name }}</h5>
+            <div class="card-body">
+                <p class="card-text">
+                    {%- comment -%} Plant Based {{ dessert.plantBased }} {%- endcomment -%}
+                    {% if dessert.plantBased %}
+                        Plant Based
+                    {% else %}
+                        Not plant based
+                    {% endif %}
+                </p>
+                <p class="card-text">
+                    {% if dessert.vegitarian %}
+                        vegetarian
+                    {% else %}
+                        Not vegetarian 
+                    {% endif %}
+                </p>
+                <p class="card-text">
+                   {% if dessert.dairyFree %}
+                        Dairy free
+                    {% else %}
+                        Not dairy free
+                    {% endif %}
+                </p>
+                <p class="card-text">
+                    {% if dessert.hasMeat %}
+                        Contains meat
+                    {% else %}
+                        No meat
+                    {% endif %}
+                </p>
+                <p class="card-text">
+                    {% if dessert.hasGluten %}
+                        Gluten free
+                    {% else %}
+                        Not gluten free
+                    {% endif %}
+                 <h5 class="card-header">{{ ingredients.name }}</h5>
+                 <h5 class="card-header">{{ directions.name }}</h5>
+                </p>
+                <a href="/desserts/{{ dessert.id }}" class="btn btn-info">
+                    View {{ dessert.name }}
+                </a>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

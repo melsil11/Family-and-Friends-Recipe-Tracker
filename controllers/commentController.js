@@ -5,7 +5,7 @@ const router = express.Router()
 
 // Post
 router.post('/:maincourseId', (req, res) => {
-    const maincoureId = req.params.maincourseId
+    const maincourseId = req.params.maincourseId
 
     if (req.session.loggedIn){
         req.body.author = req.session.userId
@@ -28,7 +28,7 @@ router.post('/:maincourseId', (req, res) => {
 // Delete
 
 router.delete('/delete/:maincourseId/:commId', (req, res) => {
-    const maincourseid = req.params.maincourseId
+    const maincourseId = req.params.maincourseId
     const commId = req.params.commId
 
     Maincourse.findById(maincourseId)

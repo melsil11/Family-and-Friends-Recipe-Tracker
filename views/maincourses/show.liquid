@@ -1,0 +1,88 @@
+{% layout 'layout.liquid' %}
+{% block content %}
+<div class="container-md">
+    <article>
+        <h2>
+            {{ maincourse.name }}    
+        </h2>
+         <p class="card-text">
+            {% if maincourse.plantBased %}
+                Plant Based
+            {% else %}
+                Not plant based
+            {% endif %}
+        </p>
+        <p class="card-text">
+            {% if maincourse.vegitarian %}
+                vegetarian
+            {% else %}
+                Not vegetarian 
+            {% endif %}
+        </p>
+        <p class="card-text">
+            {% if maincourse.dairyFree %}
+                Dairy free
+            {% else %}
+                Not dairy free
+            {% endif %}
+        </p>
+        <p class="card-text">
+             {% if maincourse.hasMeat %}
+                Contains meat
+            {% else %}
+                No meat
+            {% endif %}
+        </p>
+        <p class="card-text">
+             {% if maincourse.hasGluten %}
+                Gluten free
+            {% else %}
+                Not gluten free
+            {% endif %}
+        </p>
+        <h4>Ingredients: {{maincourse.ingredients}} </h4>
+        {%- comment -%} {% if maincourse.owner == userId %} {%- endcomment -%}
+        <h4>Directions: {{maincourse.directions}} </h4>
+        
+        {% if maincourse.owner == userId %}
+        <div class="btn-group">
+            <a href="/maincourses/{{ maincourse.id }}/edit" class="btn btn-primary">Edit</a>
+            <form action="/maincourses/{{ maincourse.id }}?_method=DELETE" method="POST">
+                <input type="submit" value="Delete" class="btn btn-danger">
+            </form>
+        </div>
+        {% endif %}
+    </article>
+    <hr>
+    <h4>comments</h4>
+    <hr>
+    {% if loggedIn %}
+      <div class="col-md-6">
+        <form action="/comments/{{maincourse.id}}" method="POST">
+          <fieldset>
+            <legend>Add Comment</legend>
+            <label class="form-label">comment:</label>
+            <input class="form-control mb-1" type="text" placeholder="enter your comment..." name="note" required>
+          </fieldset>
+          <input class="btn btn-success" type="submit" value="add comment">
+        </form>
+      </div>
+    {% else %}
+      <div class="col-md-6">
+        <small>If you'd like to leave a comment, please log in...</small>
+      </div>
+    {% endif %}
+    <hr>
+    {% if maincourse.comments.length > 0%}
+      <div class="container-sm justify-content-center">
+        <div class="col-md-8 col-lg-6">
+          {% for comment in maincourse.comments %}
+            {% render '../comment.liquid', comment: comment, userId: userId, maincourse: maincourse %}
+          {% endfor %}
+        </div>
+      </div>
+    {% else %}
+      <small>no comments yet...</small>
+    {% endif %}    
+</div>
+{% endblock %}

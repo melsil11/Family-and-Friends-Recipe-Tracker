@@ -20,6 +20,7 @@ const dessertSchema = new Schema({
 		hasMeat: Boolean,
 		glutenFree: Boolean,
 		ingredients: String,
+		directions: String,
 		owner: {
 			type: Schema.Types.ObjectID,
 			ref: 'User'

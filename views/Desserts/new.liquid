@@ -1,0 +1,31 @@
+{% layout 'layout.liquid' %}
+{% block content %}
+<div class="container-sm">
+    <form action="/desserts" method="POST">
+        <fieldset>
+            <legend>Create New Dessert Recipe</legend>
+            <label class="form-label">Name: </label>
+            <input 
+                type="text" 
+                name="name" 
+                placeholder="enter recipe name"
+                class="form-control">
+            <label class="form-label">Plant Based:</label>
+                <input type="checkbox" name="plantBased" class="form-check-input">
+            <label class="form-label">Vegetarian:</label>
+                <input type="checkbox" name="vegetarian" class="form-check-input">
+            <label class="form-label">Dairy Free:</label>
+                <input type="checkbox" name="dairyFree" class="form-check-input">
+            <label class="form-label">Contains Meat:</label>
+                <input type="checkbox" name="hasMeat" class="form-check-input">
+            <label class="form-label">Gluten Free:</label>
+                <input type="checkbox" name="glutenFree" class="form-check-input">
+            <label class="form-label">Ingredients: </label>
+                <input type="text" name="ingredients" placeholder="enter ingredients" class="form-control">
+            <label class="form-label">Directions: </label>
+                <input type="text" name="directions" placeholder="enter directions" class="form-control">
+        </fieldset>
+        <input type="submit" value="Create New recipe" class="btn btn-success">
+    </form>
+</div>
+{% endblock %}

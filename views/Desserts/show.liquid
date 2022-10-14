@@ -3,49 +3,51 @@
 <div class="container-md">
     <article>
         <h2>
-            {{ maincourse.name }}    
+            {{ dessert.name }}    
         </h2>
          <p class="card-text">
-            {% if maincourse.plantBased %}
+            {% if dessert.plantBased %}
                 Plant Based
             {% else %}
                 Not plant based
             {% endif %}
         </p>
         <p class="card-text">
-            {% if maincourse.vegitarian %}
+            {% if dessert.vegitarian %}
                 vegetarian
             {% else %}
                 Not vegetarian 
             {% endif %}
         </p>
         <p class="card-text">
-            {% if maincourse.dairyFree %}
+            {% if dessert.dairyFree %}
                 Dairy free
             {% else %}
                 Not dairy free
             {% endif %}
         </p>
         <p class="card-text">
-             {% if maincourse.hasMeat %}
+             {% if dessert.hasMeat %}
                 Contains meat
             {% else %}
                 No meat
             {% endif %}
         </p>
         <p class="card-text">
-             {% if maincourse.hasGluten %}
+             {% if dessert.hasGluten %}
                 Gluten free
             {% else %}
                 Not gluten free
             {% endif %}
         </p>
-        <h4>Ingredients: {{maincourse.name}} </h4>
-        {% if maincourse.owner == userId %}
+        <h4>Ingredients: {{dessert.ingredients}} </h4>
+        {%- comment -%} {% if dessert.owner == userId %} {%- endcomment -%}
+        <h4>Directions: {{dessert.directions}} </h4>
+        
+        {% if dessert.owner == userId %}
         <div class="btn-group">
-
-            <a href="/maincourses/{{ maincourse.id }}/edit" class="btn btn-primary">Edit</a>
-            <form action="/maincourses/{{ maincourse.id }}?_method=DELETE" method="POST">
+            <a href="/desserts/{{ dessert.id }}/edit" class="btn btn-primary">Edit</a>
+            <form action="/dessertss/{{ dessert.id }}?_method=DELETE" method="POST">
                 <input type="submit" value="Delete" class="btn btn-danger">
             </form>
         </div>
@@ -56,7 +58,7 @@
     <hr>
     {% if loggedIn %}
       <div class="col-md-6">
-        <form action="/comments/{{maincourse.id}}" method="POST">
+        <form action="/comments/{{dessert.id}}" method="POST">
           <fieldset>
             <legend>Add Comment</legend>
             <label class="form-label">comment:</label>
@@ -71,11 +73,11 @@
       </div>
     {% endif %}
     <hr>
-    {% if maincourse.comments.length > 0%}
+    {% if dessert.comments.length > 0%}
       <div class="container-sm justify-content-center">
         <div class="col-md-8 col-lg-6">
-          {% for comment in maincourse.comments %}
-            {% render '../comment.liquid', comment: comment, userId: userId, maincourse: maincourse %}
+          {% for comment in dessert.comments %}
+            {% render '../comment.liquid', comment: comment, userId: userId, dessert: dessert %}
           {% endfor %}
         </div>
       </div>
