@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon server.js",
-    "seed": "node models/seedMaincourses.js"
+    "seedCs": "node models/seedMaincourses.js",
+    "seedDs": "node models/seedDesserts.js"
   },
   "keywords": [
     "Recipe, Food, Tracker, desserts"

@@ -99,14 +99,22 @@ router.put('/:id', (req, res) => {
 	req.body.dairyFree = req.body.dairyFree === 'on' ? true : false
 	req.body.hasMeat = req.body.hasMeat === 'on' ? true : false
 	req.body.glutenFree = req.body.glutenFree === 'on' ? true : false
-
-	Dessert.findByIdAndUpdate(dessertId, req.body, { new: true })
-		.then(dessert => {
-			res.redirect(`/desserts/${dessert.id}`)
-		})
-		.catch((error) => {
-			res.redirect(`/error?error=${error}`)
-		})
+    console.log('req.body after changing checkbox value', req.body)
+	Dessert.findById(dessertId)
+    .then((dessert) => {
+        if (dessert.owner == req.session.userId) {
+          // res.sendStatus(204)
+          return dessert.updateOne(req.body)
+      } else {
+          res.sendStatus(401)
+      }
+  })
+     .then(() => {
+    // console.log('returned from update promise', data)
+      res.redirect(`/desserts/${id}`)
+})
+  // .catch(error => res.json(error))
+    .catch(err => res.redirect(`/error?error=${err}`))
 })
 
 // show route

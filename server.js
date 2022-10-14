@@ -8,7 +8,8 @@ const MaincourseRouter = require('./controllers/maincourse')
 const DessertRouter = require('./controllers/dessert')
 const UserRouter = require('./controllers/user')
 const User = require("./models/user")
-const CommentRouter = require('./controllers/commentController.js')
+const CommentRouter = require('./controllers/commentControllerDessert.js')
+const DessertCommentRouter = require('./controllers/commentController.js')
 const middleware = require('./utils/middleware')
 // SEE MORE DEPENDENCIES IN ./utils/middleware.js
 // user and resource routes linked in ./utils/middleware.js
@@ -29,6 +30,7 @@ app.use('/maincourses', MaincourseRouter)
 app.use('/desserts', DessertRouter)
 app.use('/users', UserRouter)
 app.use('/comments', CommentRouter)
+app.use('/comments', DessertCommentRouter)
 
 app.get('/', (req, res) => {
     const { username, userId, loggedIn } = req.session

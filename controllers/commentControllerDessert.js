@@ -5,7 +5,7 @@ const router = express.Router()
 
 // Post
 router.post('/:dessertId', (req, res) => {
-    const maincoureId = req.params.dessertId
+    const dessertId = req.params.dessertId
 
     if (req.session.loggedIn){
         req.body.author = req.session.userId
@@ -31,7 +31,7 @@ router.delete('/delete/:dessertId/:commId', (req, res) => {
     const dessertid = req.params.dessertId
     const commId = req.params.commId
 
-    Dessert.findById(dessertId)
+    Dessert.findById(dessertid)
         .then(dessert => {
             const theComment = dessert.comments.id(commId)
 

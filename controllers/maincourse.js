@@ -36,19 +36,6 @@ router.get('/', (req, res) => {
 		})
 })
 
-// index that shows only the user's maincourses
-router.get('/mine', (req, res) => {
-    // destructure user info from req.session
-    const { username, userId, loggedIn } = req.session
-	Maincourse.find({ owner: userId })
-		.then(maincourses => {
-			res.render('maincourses/index', { maincourses, username, loggedIn })
-		})
-		.catch(error => {
-			res.redirect(`/error?error=${error}`)
-		})
-})
-
 // new route -> GET route that renders our page with the form
 router.get('/new', (req, res) => {
 	const { username, userId, loggedIn } = req.session
@@ -73,6 +60,23 @@ router.post('/', (req, res) => {
 			res.redirect(`/error?error=${error}`)
 		})
 })
+
+// index that shows only the user's maincourses
+router.get('/mine', (req, res) => {
+    // destructure user info from req.session
+    const { username, userId, loggedIn } = req.session
+	Maincourse.find({ owner: userId })
+		.then(maincourses => {
+			res.render('maincourses/index', { maincourses, username, loggedIn })
+		})
+		.catch(error => {
+			res.redirect(`/error?error=${error}`)
+		})
+})
+
+
+
+
 
 // edit route -> GET that takes us to the edit form view
 router.get('/:id/edit', (req, res) => {
@@ -100,13 +104,21 @@ router.put('/:id', (req, res) => {
 	req.body.hasMeat = req.body.hasMeat === 'on' ? true : false
 	req.body.glutenFree = req.body.glutenFree === 'on' ? true : false
 
-	Maincourse.findById(maincourseId, req.body, { new: true })
-		.then(maincourse => {
-			res.redirect(`/maincourses/${maincourse.id}`)
-		})
-		.catch((error) => {
-			res.redirect(`/error?error=${error}`)
-		})
+	Maincourse.findById(maincourseId)
+	.then((maincourse) => {
+	  if (maincourse.owner == req.session.userId) {
+		// res.sendStatus(204)
+		return maincourse.updateOne(req.body)
+	} else {
+		res.sendStatus(401)
+	}
+})
+   .then(() => {
+  // console.log('returned from update promise', data)
+	res.redirect(`/maincourses/${id}`)
+})
+// .catch(error => res.json(error))
+  .catch(err => res.redirect(`/error?error=${err}`))
 })
 
 // show route
