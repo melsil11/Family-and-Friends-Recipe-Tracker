@@ -74,18 +74,13 @@ router.get('/mine', (req, res) => {
 		})
 })
 
-
-
-
-
 // edit route -> GET that takes us to the edit form view
 router.get('/:id/edit', (req, res) => {
 	// we need to get the id
-	const maincourseId = req.params.id
-
 	const username = req.session.username
     const loggedIn = req.session.loggedIn
     const userId = req.session.userId
+	const maincourseId = req.params.id
 	Maincourse.findById(maincourseId)
 		.then(maincourse => {
 			res.render('maincourses/edit', { maincourse, username, loggedIn, userId })
@@ -97,28 +92,32 @@ router.get('/:id/edit', (req, res) => {
 
 // update route
 router.put('/:id', (req, res) => {
-	const maincourseId = req.params.id
+	// console.log("initial", req.body)
+	const id = req.params.id
 	req.body.plantBased = req.body.plantBased === 'on' ? true : false
 	req.body.vegetarian = req.body.vegetarian === 'on' ? true : false
 	req.body.dairyFree = req.body.dairyFree === 'on' ? true : false
 	req.body.hasMeat = req.body.hasMeat === 'on' ? true : false
 	req.body.glutenFree = req.body.glutenFree === 'on' ? true : false
-
-	Maincourse.findById(maincourseId)
+	// console.log('after changes', req.body)
+	Maincourse.findById(id)
 	.then((maincourse) => {
 	  if (maincourse.owner == req.session.userId) {
-		// res.sendStatus(204)
 		return maincourse.updateOne(req.body)
 	} else {
 		res.sendStatus(401)
 	}
 })
    .then(() => {
-  // console.log('returned from update promise', data)
+//   console.log('returned from update promise', data)
 	res.redirect(`/maincourses/${id}`)
 })
 // .catch(error => res.json(error))
-  .catch(err => res.redirect(`/error?error=${err}`))
+	.catch((err) => {
+	// console.log(err)
+	// res.json(err)
+	res.redirect(`/error?error=${err}`)
+	})
 })
 
 // show route
@@ -128,6 +127,7 @@ router.get('/:id', (req, res) => {
 		.then(maincourse => {
             const {username, loggedIn, userId} = req.session
 			res.render('maincourses/show', { maincourse, username, loggedIn, userId })
+			// res.json({ maincourse: maincourse })
 		})
 		.catch((error) => {
 			res.redirect(`/error?error=${error}`)

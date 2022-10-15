@@ -1,12 +1,12 @@
 {% layout 'layout.liquid' %}
 {% block content %}
 <div class="container-sm">
-    <form action="/maincourses/{{maincourse.id}}?_method=PUT" method="POST"></form>
+    <form action="/maincourses/{{maincourse.id}}?_method=PUT" method="POST">
         <fieldset>
-            <legend>Edit {{maincourse.name}}</legend>
-            <label class="form-label">Name: </label>
+            <legend>Edit {{maincourse.name}}
+            </legend>
+            <label class="form-label"> Name: </label>
             <input class="form-control" type="text" name="name" placeholder="enter the name of the maincourse" value="{{ maincourse.name }}">
-
             <label class="form-label">Plant Based:</label>
             <input 
                 type="checkbox" 
@@ -48,11 +48,12 @@
                     checked
                 {% endif %}>
             <label class="form-label">Ingredients: </label>
-            <input class="form-control" type="text" name="ingredients" placeholder="enter the ingredients" value="{{ maincourse.name }}">
+            <input class="form-control" type="text" name="ingredients" placeholder="enter the ingredients" value="{{ maincourse.ingredients }}">
             <label class="form-label">Directions: </label>
-            <input class="form-control" type="text" name="directions" placeholder="enter the directions" value="{{ maincourse.name }}">
+            <input class="form-control" type="text" name="directions" placeholder="enter the directions" value="{{ maincourse.directions }}">
         </fieldset>
-        <input type="submit" value="Edit {{maincourse.name}}" class="btn btn-success">
+        <input class="btn btn-success" type="submit" value="Edit {{maincourse.name}}">
     </form>
 </div>
+
 {% endblock %}

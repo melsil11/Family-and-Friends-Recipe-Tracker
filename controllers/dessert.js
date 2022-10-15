@@ -78,7 +78,6 @@ router.post('/', (req, res) => {
 router.get('/:id/edit', (req, res) => {
 	// we need to get the id
 	const dessertId = req.params.id
-
 	const username = req.session.username
     const loggedIn = req.session.loggedIn
     const userId = req.session.userId
@@ -93,14 +92,14 @@ router.get('/:id/edit', (req, res) => {
 
 // update route
 router.put('/:id', (req, res) => {
-	const dessertId = req.params.id
+	const id = req.params.id
 	req.body.plantBased = req.body.plantBased === 'on' ? true : false
 	req.body.vegetarian = req.body.vegetarian === 'on' ? true : false
 	req.body.dairyFree = req.body.dairyFree === 'on' ? true : false
 	req.body.hasMeat = req.body.hasMeat === 'on' ? true : false
 	req.body.glutenFree = req.body.glutenFree === 'on' ? true : false
-    console.log('req.body after changing checkbox value', req.body)
-	Dessert.findById(dessertId)
+    // console.log('req.body after changing checkbox value', req.body)
+	Dessert.findById(id)
     .then((dessert) => {
         if (dessert.owner == req.session.userId) {
           // res.sendStatus(204)
