@@ -139,7 +139,7 @@ router.delete('/:id', (req, res) => {
 	const maincourseId = req.params.id
 	Maincourse.findByIdAndRemove(maincourseId)
 		.then(maincourse => {
-			res.redirect('/maincourses')
+			res.redirect('/maincourses/mine')
 		})
 		.catch(error => {
 			res.redirect(`/error?error=${error}`)

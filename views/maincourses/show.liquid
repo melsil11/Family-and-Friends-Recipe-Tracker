@@ -43,7 +43,7 @@
         <h4>Ingredients: {{maincourse.ingredients}} </h4>
         {%- comment -%} {% if maincourse.owner == userId %} {%- endcomment -%}
         <h4>Directions: {{maincourse.directions}} </h4>
-        
+        {% if loggedIn %}
         {% if maincourse.owner == userId %}
         <div class="btn-group">
             <a href="/maincourses/{{ maincourse.id }}/edit" class="btn btn-primary">Edit</a>
@@ -51,6 +51,7 @@
                 <input type="submit" value="Delete" class="btn btn-danger">
             </form>
         </div>
+        {% endif %}
         {% endif %}
     </article>
     <hr>

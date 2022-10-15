@@ -1,9 +1,19 @@
+////////////////////////////////////////
+// Import Dependencies
+////////////////////////////////////////
 const express = require("express")
 const Maincourse = require("../models/maincourse")
 
+/////////////////////////////////////////
+// Create Router
+/////////////////////////////////////////
 const router = express.Router()
 
-// Post
+/////////////////////////////////////////////
+// Routes
+////////////////////////////////////////////
+// POST
+// only loggedIn users can post comments
 router.post('/:maincourseId', (req, res) => {
     const maincourseId = req.params.maincourseId
 
@@ -12,7 +22,7 @@ router.post('/:maincourseId', (req, res) => {
     } else {
         res.sendStatus(401)
     }
-    // console.log('did I make it')
+
     Maincourse.findById(maincourseId)
     .then(maincourse => {
         maincourse.comments.push(req.body)
@@ -25,8 +35,8 @@ router.post('/:maincourseId', (req, res) => {
     .catch(err => res.redirect(`/error?error=${err}`))
 })
 
-// Delete
-
+// DELETE
+// only the author of the comment can delete it
 router.delete('/delete/:maincourseId/:commId', (req, res) => {
     const maincourseId = req.params.maincourseId
     const commId = req.params.commId
@@ -52,4 +62,7 @@ router.delete('/delete/:maincourseId/:commId', (req, res) => {
         .catch(err => res.redirect(`/error?error=${err}`))
 })
 
+//////////////////////////////////////////
+// Export the Router
+//////////////////////////////////////////
 module.exports = router
