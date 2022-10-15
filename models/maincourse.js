@@ -17,9 +17,9 @@ const maincourseSchema = new Schema({
 		glutenFree: Boolean,
 		ingredients: String,
 		directions: String,
-		owner: {
-			type: Schema.Types.ObjectID,
-			ref: 'User'
+		owner: {			
+			type: Schema.Types.ObjectId,
+			ref: 'User'	
 },
 comments: [commentSchema]
 }, { timestamps: true })
