@@ -28,10 +28,10 @@ router.post('/:dessertId', (req, res) => {
 // Delete
 
 router.delete('/delete/:dessertId/:commId', (req, res) => {
-    const dessertid = req.params.dessertId
+    const dessertId = req.params.dessertId
     const commId = req.params.commId
 
-    Dessert.findById(dessertid)
+    Dessert.findById(dessertId)
         .then(dessert => {
             const theComment = dessert.comments.id(commId)
 

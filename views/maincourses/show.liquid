@@ -78,7 +78,7 @@
       <div class="container-sm justify-content-center">
         <div class="col-md-8 col-lg-6">
           {% for comment in maincourse.comments %}
-            {% render '../comment.liquid', comment: comment, userId: userId, maincourse: maincourse %}
+            {% render '../MaincourseComment.liquid', comment: comment, userId: userId, maincourse: maincourse %}
           {% endfor %}
         </div>
       </div>

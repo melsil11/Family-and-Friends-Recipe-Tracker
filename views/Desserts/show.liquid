@@ -3,7 +3,7 @@
 <div class="container-md">
     <article>
         <h2>
-            {{ dessert.name }}    
+          {{ dessert.name }}    
         </h2>
          <p class="card-text">
             {% if dessert.plantBased %}
@@ -58,7 +58,7 @@
     <hr>
     {% if loggedIn %}
       <div class="col-md-6">
-        <form action="/comments/{{dessert.id}}" method="POST">
+        <form action="/commentDesserts/{{dessert.id}}" method="POST">
           <fieldset>
             <legend>Add Comment</legend>
             <label class="form-label">comment:</label>
@@ -77,7 +77,7 @@
       <div class="container-sm justify-content-center">
         <div class="col-md-8 col-lg-6">
           {% for comment in dessert.comments %}
-            {% render '../comment.liquid', comment: comment, userId: userId, dessert: dessert %}
+            {% render '../DessertComment.liquid', comment: comment, userId: userId, dessert: dessert %}
           {% endfor %}
         </div>
       </div>

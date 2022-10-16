@@ -1,39 +1,30 @@
-Family-and-Friends-Favorite-Recipe-Tracker
+# Family-and-Friends-Favorite-Recipe-Tracker
 
-Project planning 
+## Overview
 
-•	Draft a brief overview of the general project idea.
+This project will be a full stack application for recipes. 
+Users will be able log in, view all of the recipes made and create a recipe. The user will be able to write comments on the recipes that they choose to write about. Users will be able to see some dietary considerations (vegetarian, dairy, plant based, meat).
 
-This project will be a recipe tracker. 
-Users will be able log in create a recipe card and be able to leave a comment about the recipe. 
-Users will be able to see if a recipe is a hit or not. 
-Users can also leave suggestions in the comment section. 
-Users will be able to see some dietary requirements (vegetarian, dairy, plant based, meat).
+## User story
 
-• Seed Data 
-
-{name: string, main ingredients: string, plant based: boolean, meat: boolean, vegetarian: boolean, dairy: boolean}
-{name: string}
-
-•	Write a user story.
+As a user;
 
 I want to be able to sign up for a personal account. 
 I want to be able to log in with a username and password. 
 I want to be brought to the main page. 
 I want to see all the food choices.  
-When I click on an individual card, I want to see details, options and comments. 
-I want to be able to edit or delete my card. 
-I want to be able to leave a comment. 
-I want to be able to see every comment. 
+I want to see details, comments when i click on an individual recipe. 
+I want to be able to edit or delete my recipes. 
+I want to be able to leave a comment on other users recipes.
+I want to tbe able to see comments left on my recipes. 
 I want to be able to make a new recipe card. 
-I do not want anyone to be able to edit or delete my card that I make.
+I do not want anyone to be able to edit or delete any recipe that I make.
 
-•Technologies used
-MongoDB, Mongoose, Express, Liquidjs, Bootstrap, CSS 
+## Technologies used
+MongoDB, Mongoose, Express.js, LiquidJS, Bootstrap, CSS, HTML 
 
-•	Create wireframes
+## wireframes
 
-![Untitled Diagram-Page-1 drawio](https://user-images.githubusercontent.com/112329390/194783389-96666126-5b0a-4272-8e36-96ac18851d57.png)
 
 ![Untitled Diagram-Page-2 drawio](https://user-images.githubusercontent.com/112329390/194783396-3ce57429-964c-4087-8f54-7ecc0ca1e885.png)
 
@@ -45,13 +36,11 @@ MongoDB, Mongoose, Express, Liquidjs, Bootstrap, CSS
 
 ![Untitled Diagram-Page-9 drawio](https://user-images.githubusercontent.com/112329390/194925005-80122032-7397-4de6-a9ba-c87750f959be.png)
 
-
-•	Create Entity Relationship Diagrams
+## Entity Relationship Diagrams
 
 ![Untitled Diagram-Page-10 drawio](https://user-images.githubusercontent.com/112329390/194929991-23b47855-c607-43a0-bf5e-5093abcdfe06.png)• Schedule of week
-<<<<<<< HEAD
-<<<<<<< HEAD
 
+## Schedule
 Monday -approval, work on boilerplate, set up repository, seed file, models
 Tuesday -work on routes and connections 
 Wednesday -make sure connections and routes are working

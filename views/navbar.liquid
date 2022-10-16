@@ -4,26 +4,48 @@
 <nav class="navbar navbar-expand-md navbar-dark bg-dark">
     <div class="container-fluid">
         <a href="/" class="navbar-brand">Home</a>
-        {% if loggedIn %}
-        <a href="/myrecipes" class="nav-link text-light">My Recipes
-        {%- comment -%} Hello {{ username }} </a> {%- endcomment -%}
-        {% endif %}
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
-            {% if loggedIn %}
-                <a href="/maincourses" class="nav-link text-light">View All Maincourses</a>
-                <a href="/maincourses/new" class="nav-link text-light">New Maincourse</a>
-                <a href="/maincourses/mine" class="nav-link text-light">My Maincourses Recipes</a>
+             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                {% if loggedIn %}
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="/myrecipes"id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">My Recipes
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href="/myrecipes">All My Recipes</a>
+                        </li>
+                        <li><a class="dropdown-item" href="/maincourses/mine">Maincourses</a>
+                        </li>
+                        <li><a class="dropdown-item" href="/desserts/mine">Desserts</a>
+                        </li>                    
+                    </ul>
+                </li>
+                <li class="nav-allmaincourses">
+                    <a href="/maincourses" class="nav-link text-light">View All Maincourses</a>
+                 </li>
+                {%- comment -%} <a href="/maincourses/new" class="nav-link text-light">New Maincourse</a> {%- endcomment -%}
+                {%- comment -%} <a href="/maincourses/mine" class="nav-link text-light">My Maincourses Recipes</a> {%- endcomment -%}
                 <a href="/desserts" class="nav-link text-light">View All Desserts</a>
-                <a href="/desserts/new" class="nav-link text-light">New Dessert</a>
-                <a href="/desserts/mine" class="nav-link text-light">My Dessert Recipes</a>
+                {%- comment -%} <a href="/desserts/new" class="nav-link text-light">New Dessert</a> {%- endcomment -%}
+                {%- comment -%} <a href="/desserts/mine" class="nav-link text-light">My Dessert Recipes</a> {%- endcomment -%}
+                {%- comment -%} <a href="/appetizers" class="nav-link text-light">All Appetizer</a> {%- endcomment -%}
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="/myrecipes"id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Create New Recipe</a>
+                    <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href="/maincourses/new">Maincourses</a>
+                        </li>
+                        <li><a class="dropdown-item" href="/desserts/new">Desserts</a></li>
+                        </li>
+                    </ul>
+                </li>
                 <a href="/auth/logout" class="nav-link text-light">Log Out</a>
-            {% else %}
+                {% else %}
                 <a href="/auth/signup" class="nav-link text-light">Sign Up</a>
                 <a href="/auth/login" class="nav-link text-light">Log In</a>
-            {% endif %}
+                {% endif %}
+            </ul>
         </div>
     </div>
 </nav>
