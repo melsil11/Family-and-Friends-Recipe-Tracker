@@ -25,20 +25,29 @@ MongoDB, Mongoose, Express.js, LiquidJS, Bootstrap, CSS, HTML
 
 ## wireframes
 
+![Untitled Diagram-Page-1 drawio](https://user-images.githubusercontent.com/112329390/196055376-969a0e91-987f-4ff9-9966-ebe748809e16.png)
 
-![Untitled Diagram-Page-2 drawio](https://user-images.githubusercontent.com/112329390/194783396-3ce57429-964c-4087-8f54-7ecc0ca1e885.png)
+![Untitled Diagram-Page-2 drawio](https://user-images.githubusercontent.com/112329390/196055390-cb9b9dcd-2414-4b3b-862f-9105879e913c.png)
+![Untitled Diagram-Page-3 drawio](https://user-images.githubusercontent.com/112329390/194783398-dbc67a23-6942-4ff6-863a-9bf014404859.png)
+
+![Untitled Diagram-Page-3 drawio](https://user-images.githubusercontent.com/112329390/196055398-f987ce90-09be-489e-915a-fbc318381ed0.png)
 
 ![Untitled Diagram-Page-3 drawio](https://user-images.githubusercontent.com/112329390/194783398-dbc67a23-6942-4ff6-863a-9bf014404859.png)
 
-![Untitled Diagram-Page-5 drawio](https://user-images.githubusercontent.com/112329390/194924970-1901375e-7dfe-4edf-83a1-be59ba2794eb.png)
+![Untitled Diagram-Page-4 drawio](https://user-images.githubusercontent.com/112329390/196055405-3033e8a5-14ad-46bb-b207-332dd53159a5.png)
 
-![Untitled Diagram-Page-6 drawio](https://user-images.githubusercontent.com/112329390/194924981-2a991854-4515-41f6-bfec-3044afdbf8e3.png)
+![Untitled Diagram-Page-3 drawio](https://user-images.githubusercontent.com/112329390/194783398-dbc67a23-6942-4ff6-863a-9bf014404859.png)
 
-![Untitled Diagram-Page-9 drawio](https://user-images.githubusercontent.com/112329390/194925005-80122032-7397-4de6-a9ba-c87750f959be.png)
+![Untitled Diagram-Page-5 drawio (1)](https://user-images.githubusercontent.com/112329390/196055415-7f8f7f8f-72fb-4c2b-a0aa-a483ef3a750f.png)
+
+![Untitled Diagram-Page-6 drawio (1)](https://user-images.githubusercontent.com/112329390/196055430-374028a7-72b5-440c-b246-94e8d1918f00.png)
+
+![Untitled Diagram-Page-9 drawio (1)](https://user-images.githubusercontent.com/112329390/196055435-40427bfc-5d3f-48aa-9ce9-1ed15cb02ec6.png)
+
 
 ## Entity Relationship Diagrams
 
-![Untitled Diagram-Page-10 drawio](https://user-images.githubusercontent.com/112329390/194929991-23b47855-c607-43a0-bf5e-5093abcdfe06.png)
+![Untitled Diagram-Page-10 drawio (1)](https://user-images.githubusercontent.com/112329390/196055446-9bf00584-e91e-4fcf-badd-a406784b8d0e.png)
 
 ## Seeds
 
