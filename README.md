@@ -23,6 +23,10 @@ I do not want anyone to be able to edit or delete any recipe that I make.
 ## Technologies used
 MongoDB, Mongoose, Express.js, LiquidJS, Bootstrap, CSS, HTML 
 
+## Seeds
+
+{ name: '', plantBased: false, vegetarian: false, dairyFree: true, hasMeat: true, glutenFree: true, ingredients:'', directions:'' },
+
 ## wireframes
 
 ![Untitled Diagram-Page-1 drawio](https://user-images.githubusercontent.com/112329390/196055376-969a0e91-987f-4ff9-9966-ebe748809e16.png)
@@ -48,10 +52,6 @@ MongoDB, Mongoose, Express.js, LiquidJS, Bootstrap, CSS, HTML
 ## Entity Relationship Diagrams
 
 ![Untitled Diagram-Page-10 drawio (1)](https://user-images.githubusercontent.com/112329390/196055446-9bf00584-e91e-4fcf-badd-a406784b8d0e.png)
-
-## Seeds
-
-{ name: '', plantBased: false, vegetarian: false, dairyFree: true, hasMeat: true, glutenFree: true, ingredients:'', directions:'' },
 
 ## Schedule
 Monday -approval, work on boilerplate, set up repository, seed file, models
