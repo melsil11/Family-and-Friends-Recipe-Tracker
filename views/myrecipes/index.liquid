@@ -5,12 +5,13 @@
         <div class="container-fluid">
             <a class="navbar-brand" href="/myrecipes">My Recipes</a>
             {% if loggedIn %}
-            <a class="nav-link text-light" href="/maincourses/mine">My Maincourses</a>            
+            <a class="nav-link text-light" href="/maincourses/mine">My Main courses</a>            
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
-            <a class="nav-link text-light" href="/desserts/mine">My Desserts</a>                 
+            <a class="nav-link text-light" href="/desserts/mine">My Desserts</a> 
+                        {%- comment -%} Future additions {%- endcomment -%}
             {%- comment -%} <a class="nav-link text-light" href="/appetizers/mine">My Appetizers</a>  
             <a class="nav-link text-light" href="/beverages/mine">My Beverages</a>                 {%- endcomment -%}
             {% endif %} 
@@ -20,15 +21,15 @@
     <h2 class="display-6">All My Recipes</h2>
     <div class="row">
         {% for myrecipes in myrecipes %}
-        {%- comment -%} {%if maincourse.id == maincourse.id%}          {%- endcomment -%}
-    {%- comment -%} <div class = 'container'>       {%- endcomment -%}
+        {%- comment -%} {%if maincourse.id == maincourse.id%}  {%- endcomment -%}
+        {%- comment -%} {%if maincourse in maincourse%} {%- endcomment -%}
+    <div class = 'container'>      
             <div class="row">
                 {% for maincourse in myrecipes %}
                 <div class="card" style="width: 18rem;">
                     <h5 class="card-header">{{ maincourse.name }}</h5>
                     <div class="card-body">
-                        <p class="card-text">
-                           
+                        <p class="card-text">                          
                             {% if maincourse.plantBased %}
                                 Plant Based
                             {% else %}
@@ -73,7 +74,7 @@
                 {% endfor %}
             </div>
     {%- comment -%} {% else %}        {%- endcomment -%}
-             {%- comment -%} <div class="row">
+             <div class="row"> 
         {% for dessert in myrecipes %}
         <div class="card" style="width: 18rem;">
             <h5 class="card-header">{{ dessert.name }}</h5>
@@ -122,9 +123,9 @@
             </div>
         {% endfor %}
         </div> 
-        </div>  {%- endcomment -%}
+        </div>  
     {%- comment -%} {% endif %}        {%- endcomment -%}
         {% endfor %}
-    {%- comment -%} </div> {%- endcomment -%}
+    </div>
 </div>
 {% endblock %}
