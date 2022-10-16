@@ -38,7 +38,11 @@ MongoDB, Mongoose, Express.js, LiquidJS, Bootstrap, CSS, HTML
 
 ## Entity Relationship Diagrams
 
-![Untitled Diagram-Page-10 drawio](https://user-images.githubusercontent.com/112329390/194929991-23b47855-c607-43a0-bf5e-5093abcdfe06.png)• Schedule of week
+![Untitled Diagram-Page-10 drawio](https://user-images.githubusercontent.com/112329390/194929991-23b47855-c607-43a0-bf5e-5093abcdfe06.png)
+
+## Seeds
+
+{ name: '', plantBased: false, vegetarian: false, dairyFree: true, hasMeat: true, glutenFree: true, ingredients:'', directions:'' },
 
 ## Schedule
 Monday -approval, work on boilerplate, set up repository, seed file, models
