@@ -32,15 +32,11 @@ MongoDB, Mongoose, Express.js, LiquidJS, Bootstrap, CSS, HTML
 ![Untitled Diagram-Page-1 drawio](https://user-images.githubusercontent.com/112329390/196055376-969a0e91-987f-4ff9-9966-ebe748809e16.png)
 
 ![Untitled Diagram-Page-2 drawio](https://user-images.githubusercontent.com/112329390/196055390-cb9b9dcd-2414-4b3b-862f-9105879e913c.png)
-![Untitled Diagram-Page-3 drawio](https://user-images.githubusercontent.com/112329390/194783398-dbc67a23-6942-4ff6-863a-9bf014404859.png)
 
 ![Untitled Diagram-Page-3 drawio](https://user-images.githubusercontent.com/112329390/196055398-f987ce90-09be-489e-915a-fbc318381ed0.png)
 
-![Untitled Diagram-Page-3 drawio](https://user-images.githubusercontent.com/112329390/194783398-dbc67a23-6942-4ff6-863a-9bf014404859.png)
-
 ![Untitled Diagram-Page-4 drawio](https://user-images.githubusercontent.com/112329390/196055405-3033e8a5-14ad-46bb-b207-332dd53159a5.png)
 
-![Untitled Diagram-Page-3 drawio](https://user-images.githubusercontent.com/112329390/194783398-dbc67a23-6942-4ff6-863a-9bf014404859.png)
 
 ![Untitled Diagram-Page-5 drawio (1)](https://user-images.githubusercontent.com/112329390/196055415-7f8f7f8f-72fb-4c2b-a0aa-a483ef3a750f.png)
 
