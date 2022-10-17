@@ -1,6 +1,12 @@
+///////////////////////////////////////
+// Import Dependencies
+///////////////////////////////////////
 const mongoose = require('./connection')
 const Dessert = require('./dessert')
 
+///////////////////////////////////////
+// Seed Script code
+/////////////////////////////////////
 const db = mongoose.connection
 
 db.on('open', () => {
@@ -20,17 +26,17 @@ db.on('open', () => {
 
     ]
 
-Dessert.deleteMany({})
-    .then(deleteDesserts => {
-        console.log('testing this function')
-        Dessert.create(startDesserts)
-            .then((data) => {
-                console.log('new seeded desserts', data)
-                db.close()
-            })
-    .catch(error => {
-        console.log(error)
-        db.close()
-         })
-    }) 
+    Dessert.deleteMany({})
+        .then(deleteDesserts => {
+            console.log('testing this function')
+            Dessert.create(startDesserts)
+                .then((data) => {
+                    console.log('new seeded desserts', data)
+                    db.close()
+                })
+                .catch(error => {
+                    console.log(error)
+                    db.close()
+                 })
+        }) 
 }) 

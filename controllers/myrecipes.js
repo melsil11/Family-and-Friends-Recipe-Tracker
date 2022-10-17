@@ -1,9 +1,14 @@
+/////////////////////////////////////////////
 // Import Dependencies
+/////////////////////////////////////////////
 const express = require('express')
 const Myrecipes = require('../models/myrecipes')
 const Maincourse = require('../models/maincourse')
 const Dessert = require('../models/dessert')
-// Create router
+
+/////////////////////////////////////////
+// Create Router
+/////////////////////////////////////////
 const router = express.Router()
 
 // Router Middleware
@@ -19,24 +24,6 @@ router.use((req, res, next) => {
 		res.redirect('/auth/login')
 	}
 })
-
-// index ALL
-// router.get('/', (req, res) => {
-// 	Myrecipes.find({})
-// 		.populate("comments.author", "username")
-// 		.then(myrecipes => {
-// 			const username = req.session.username
-// 			const loggedIn = req.session.loggedIn
-// 			const userId = req.session.userId
-// 			// res.render('myrecipes/index', { myrecipes, username, loggedIn, userId })
-//             // res.json
-//              res.status(200).json({ myrecipes: myrecipes })
-//             //  this is showing "myrecipes": []. 
-// 		})
-// 		.catch(error => {
-// 			res.redirect(`/error?error=${error}`)
-// 		})
-// })
 
 // index that shows only the user's recipes
 const getUserMaincoures =(user) => {
@@ -84,5 +71,7 @@ router.get('/', (req, res) => {
         .catch(error => console.error)
 })
 
+/////////////////////////////////////////////
 // Export the Router
+/////////////////////////////////////////////
 module.exports = router

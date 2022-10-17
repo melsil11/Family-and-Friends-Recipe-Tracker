@@ -24,15 +24,14 @@ router.post('/:maincourseId', (req, res) => {
     }
 
     Maincourse.findById(maincourseId)
-    .then(maincourse => {
-        maincourse.comments.push(req.body)
-        return maincourse.save()
-        
-    })
-    .then(maincourse => {
-        res.redirect(`/maincourses/${maincourse.id}`)
-    })
-    .catch(err => res.redirect(`/error?error=${err}`))
+        .then(maincourse => {
+            maincourse.comments.push(req.body)
+            return maincourse.save()        
+        })
+        .then(maincourse => {
+            res.redirect(`/maincourses/${maincourse.id}`)
+        })
+        .catch(err => res.redirect(`/error?error=${err}`))
 })
 
 // DELETE
@@ -52,11 +51,11 @@ router.delete('/delete/:maincourseId/:commId', (req, res) => {
                     res.redirect(`/maincourses/${maincourse.id}`)    
                 } else {
                 const err = 'you%20are%20not%20authorized%20for%20this%20action'
-                res.redirect(`/error?error=${err}`)
+                    res.redirect(`/error?error=${err}`)
                 }
             } else {
             const err = 'you%20are%20not%20authorized%20for%20this%20action'
-            res.redirect(`/error?error=${err}`)
+                res.redirect(`/error?error=${err}`)
             }
         })
         .catch(err => res.redirect(`/error?error=${err}`))

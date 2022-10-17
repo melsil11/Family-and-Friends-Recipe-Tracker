@@ -18,12 +18,13 @@
             </div>
         </div>
     </nav>
-    <h2 class="display-6">All My Recipes</h2>
+    <h2 class="display-6"> All My Recipes</h2>
+    {%- comment -%} <div class = 'container'> {%- endcomment -%}
     <div class="row">
         {% for myrecipes in myrecipes %}
         {%if maincourse.type%} 
         {%- comment -%} {%if maincourse in maincourse%} {%- endcomment -%}
-    <div class = 'container'>      
+         
             <div class="row">
                 {% for maincourse in myrecipes %}
                 <div class="card" style="width: 18rem;">
@@ -127,6 +128,6 @@
         </div> 
     {% endif %}        
         {% endfor %}
-    </div>
+    {%- comment -%} </div> {%- endcomment -%}
 </div>
 {% endblock %}

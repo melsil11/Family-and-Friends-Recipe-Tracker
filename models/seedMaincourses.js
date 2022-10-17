@@ -1,6 +1,12 @@
+///////////////////////////////////////
+// Import Dependencies
+///////////////////////////////////////
 const mongoose = require('./connection')
 const Maincourse = require('./maincourse')
 
+///////////////////////////////////////
+// Seed Script code
+/////////////////////////////////////
 const db = mongoose.connection
 
 db.on('open', () => {
@@ -18,17 +24,17 @@ db.on('open', () => {
         { name: 'Slow Cooker Wild Rice Soup', plantBased: false, vegetarian: true, dairyFree: true, hasMeat: false, glutenFree: true, ingredients:'1 medium onion (chopped), 1 cup wild rice or wild rice blend (uncooked) (the cook time listed on the package should be about 45 minutes, rinsed and drained), 1 medium butternut squash (peeled, seeded and cut into ¾-inch pieces (about 4 cups)), 15 ounce can white beans (I used cannellini, rinsed and drained), 4 ribs celery (chopped), ½ teaspoon dried oregano, ½ teaspoon dried thyme, ½ teaspoon garlic powder, ½ teaspoon salt, 1/8 teaspoon black pepper, 1 bay leaf, 6 cups low sodium vegetable broth, 6 cups chopped kale (or fresh spinach, optional)', directions:'Add all ingredients to the slow cooker except for the broth and kale. Pour the broth into the slow cooker, and gently stir to combine. Cook on low setting for about 6 hours, or on high setting for about 3 ½ hours, until the rice is cooked and tender. As all slow cookers vary, cooking time may be different in your slow cooker compared to mine. Near the end of the cook time, check to see if the rice is done. Once the rice is tender, the soup has cooked long enough. Remove the bay leaf. Stir kale into soup. Serve.', type: 'maincourse' },
     ]
 
-Maincourse.deleteMany({})
-    .then(deleteMaincourses => {
-        console.log('testing this function')
-        Maincourse.create(startMaincourses)
-            .then((data) => {
-                console.log('new seeded maincourses', data)
-                db.close()
-            })
-    .catch(error => {
-        console.log(error)
-        db.close()
-         })
-    }) 
+    Maincourse.deleteMany({})
+        .then(deleteMaincourses => {
+            console.log('testing this function')
+            Maincourse.create(startMaincourses)
+                .then((data) => {
+                    console.log('new seeded maincourses', data)
+                    db.close()
+                })
+                .catch(error => {
+                    console.log(error)
+                    db.close()
+                })
+        }) 
 })  

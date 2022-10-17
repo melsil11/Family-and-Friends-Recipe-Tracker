@@ -1,7 +1,16 @@
+/////////////////////////////////////////
+// Import Dependencies
+/////////////////////////////////////////
 const express = require("express")
 const Dessert = require("../models/dessert")
-
+/////////////////////////////////////////
+// Create Router
+/////////////////////////////////////////
 const router = express.Router()
+
+/////////////////////////////////////////////
+// Routes
+////////////////////////////////////////////
 
 // Post
 router.post('/:dessertId', (req, res) => {
@@ -42,14 +51,17 @@ router.delete('/delete/:dessertId/:commId', (req, res) => {
                     res.redirect(`/desserts/${dessert.id}`)    
                 } else {
                 const err = 'you%20are%20not%20authorized%20for%20this%20action'
-                res.redirect(`/error?error=${err}`)
+                    res.redirect(`/error?error=${err}`)
                 }
             } else {
             const err = 'you%20are%20not%20authorized%20for%20this%20action'
-            res.redirect(`/error?error=${err}`)
+                res.redirect(`/error?error=${err}`)
             }
         })
         .catch(err => res.redirect(`/error?error=${err}`))
 })
 
+/////////////////////////////////////////////
+// Export Router
+////////////////////////////////////////////
 module.exports = router

@@ -12,14 +12,11 @@ const MaincourseCommentRouter = require('./controllers/commentControllerMaincour
 const DessertCommentRouter = require('./controllers/commentControllerDessert.js')
 const MyrecipesRouter = require('./controllers/myrecipes')
 const middleware = require('./utils/middleware')
-// SEE MORE DEPENDENCIES IN ./utils/middleware.js
-// user and resource routes linked in ./utils/middleware.js
 
 //////////////////////////////
 // Middleware + App Object  //
 //////////////////////////////
 const app = require("liquid-express-views")(express())
-
 middleware(app)
 
 ////////////////////

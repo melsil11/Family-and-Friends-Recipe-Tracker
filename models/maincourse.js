@@ -1,8 +1,8 @@
-// import dependencies
+/////////////////////////////////////////////
+// Import Dependencies
+/////////////////////////////////////////////
 const mongoose = require('./connection')
-// import user model for populate
 const User = require('./user')
-
 const commentSchema = require('./comment')
 
 // destructure the schema and model constructors from mongoose
@@ -25,8 +25,8 @@ const maincourseSchema = new Schema({
 		owner: {			
 			type: Schema.Types.ObjectId,
 			ref: 'User'	
-},
-comments: [commentSchema]
+		},
+		comments: [commentSchema]
 }, { timestamps: true })
 
 const Maincourse = model('Maincourse', maincourseSchema)

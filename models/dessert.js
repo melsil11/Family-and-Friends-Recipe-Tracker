@@ -1,16 +1,12 @@
-// import dependencies
+/////////////////////////////////////////////
+// Import Dependencies
+/////////////////////////////////////////////
 const mongoose = require('./connection')
-
-// import user model for populate
 const User = require('./user')
-
 const commentSchema = require('./comment')
 
 // destructure the schema and model constructors from mongoose
 const { Schema, model } = mongoose
-
-
-
 
 const dessertSchema = new Schema({
 		name: String,
@@ -29,8 +25,8 @@ const dessertSchema = new Schema({
 		owner: {
 			type: Schema.Types.ObjectID,
 			ref: 'User'
-},
-comments: [commentSchema]
+		},
+		comments: [commentSchema]
 }, { timestamps: true })
 
 const Dessert = model('Dessert', dessertSchema)

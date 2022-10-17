@@ -1,8 +1,12 @@
+////////////////////////////////////////
 // Import Dependencies
+////////////////////////////////////////
 const express = require('express')
 const Dessert = require('../models/dessert')
 
-// Create router
+/////////////////////////////////////////
+// Create Router
+/////////////////////////////////////////
 const router = express.Router()
 
 // Router Middleware
@@ -19,7 +23,9 @@ router.use((req, res, next) => {
 	}
 })
 
+////////////////////////////////////////
 // Routes
+////////////////////////////////////////
 
 // index ALL
 router.get('/', (req, res) => {
@@ -100,26 +106,27 @@ router.put('/:id', (req, res) => {
 	req.body.glutenFree = req.body.glutenFree === 'on' ? true : false
     // console.log('req.body after changing checkbox value', req.body)
 	Dessert.findById(id)
-    .then((dessert) => {
-        if (dessert.owner == req.session.userId) {
-          // res.sendStatus(204)
-          return dessert.updateOne(req.body)
-      } else {
-          res.sendStatus(401)
-      }
-  })
-     .then(() => {
-    // console.log('returned from update promise', data)
-      res.redirect(`/desserts/${id}`)
-})
-  // .catch(error => res.json(error))
-    .catch(err => res.redirect(`/error?error=${err}`))
+        .then((dessert) => {
+            if (dessert.owner == req.session.userId) {
+            // res.sendStatus(204)
+                return dessert.updateOne(req.body)
+            } else {
+                res.sendStatus(401)
+            }
+        })
+        .then(() => {
+            // console.log('returned from update promise', data)
+            res.redirect(`/desserts/${id}`)
+        })
+        // .catch(error => res.json(error))
+        .catch(err => res.redirect(`/error?error=${err}`))
 })
 
 // show route
 router.get('/:id', (req, res) => {
 	const dessertId = req.params.id
 	Dessert.findById(dessertId)
+        .populate("comments.author", "username")
 		.then(dessert => {
             const {username, loggedIn, userId} = req.session
 			res.render('desserts/show', { dessert, username, loggedIn, userId })
@@ -141,5 +148,7 @@ router.delete('/:id', (req, res) => {
 		})
 })
 
-// Export the Router
+////////////////////////////////////////
+// Export Router
+////////////////////////////////////////
 module.exports = router

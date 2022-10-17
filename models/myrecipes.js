@@ -1,11 +1,12 @@
-// import dependencies
+/////////////////////////////////////////////
+// Import Dependencies
+/////////////////////////////////////////////
 const mongoose = require('./connection')
-// import user model for populate
 const User = require('./user')
-
 const commentSchema = require('./comment')
 const maincourseSchema = require('./maincourse')
 const dessertSchema = require('./dessert')
+
 // destructure the schema and model constructors from mongoose
 const { Schema, model } = mongoose
 

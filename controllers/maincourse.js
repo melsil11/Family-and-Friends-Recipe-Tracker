@@ -1,8 +1,12 @@
+/////////////////////////////////////////////
 // Import Dependencies
+/////////////////////////////////////////////
 const express = require('express')
 const Maincourse = require('../models/maincourse')
 
-// Create router
+/////////////////////////////////////////
+// Create Router
+/////////////////////////////////////////
 const router = express.Router()
 
 // Router Middleware
@@ -19,7 +23,9 @@ router.use((req, res, next) => {
 	}
 })
 
+/////////////////////////////////////////////
 // Routes
+/////////////////////////////////////////////
 
 // index ALL
 router.get('/', (req, res) => {
@@ -102,21 +108,21 @@ router.put('/:id', (req, res) => {
 	// console.log('after changes', req.body)
 	Maincourse.findById(id)
 	.then((maincourse) => {
-	  if (maincourse.owner == req.session.userId) {
-		return maincourse.updateOne(req.body)
-	} else {
-		res.sendStatus(401)
-	}
-})
-   .then(() => {
+		if (maincourse.owner == req.session.userId) {
+			return maincourse.updateOne(req.body)
+		} else {
+			res.sendStatus(401)
+		}
+	})
+   	.then(() => {
 //   console.log('returned from update promise', data)
-	res.redirect(`/maincourses/${id}`)
-})
+		res.redirect(`/maincourses/${id}`)
+	})
 // .catch(error => res.json(error))
 	.catch((err) => {
 	// console.log(err)
 	// res.json(err)
-	res.redirect(`/error?error=${err}`)
+		res.redirect(`/error?error=${err}`)
 	})
 })
 
@@ -124,6 +130,7 @@ router.put('/:id', (req, res) => {
 router.get('/:id', (req, res) => {
 	const maincourseId = req.params.id
 	Maincourse.findById(maincourseId)
+		.populate("comments.author", "username")
 		.then(maincourse => {
             const {username, loggedIn, userId} = req.session
 			res.render('maincourses/show', { maincourse, username, loggedIn, userId })
@@ -146,5 +153,7 @@ router.delete('/:id', (req, res) => {
 		})
 })
 
+//////////////////////////////////////////
 // Export the Router
+//////////////////////////////////////////
 module.exports = router

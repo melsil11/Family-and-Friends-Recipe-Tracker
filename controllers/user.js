@@ -5,13 +5,15 @@ const express = require('express')
 const User = require('../models/user')
 const bcrypt = require('bcryptjs')
 
-////////////////////////////////////////////
-// Create router
-////////////////////////////////////////////
+
+/////////////////////////////////////////
+// Create Router
+/////////////////////////////////////////
 const router = express.Router()
 
-
+/////////////////////////////////////////////
 // Routes
+/////////////////////////////////////////////
 
 // GET to render the signup form
 router.get('/signup', (req, res) => {
@@ -21,7 +23,7 @@ router.get('/signup', (req, res) => {
 // POST to send the signup info
 router.post('/signup', async (req, res) => {
 	// set the password to hashed password
-  req.body.password = await bcrypt.hash(
+  	req.body.password = await bcrypt.hash(
 		req.body.password,
 		await bcrypt.genSalt(10)
 	)
@@ -42,6 +44,7 @@ router.post('/signup', async (req, res) => {
 router.get('/login', (req, res) => {
 	res.render('auth/login')
 })
+
 // post to send the login info(and create a session)
 router.post('/login', async (req, res) => {
 	// console.log('request object', req)
@@ -95,5 +98,7 @@ router.get('/logout', (req, res) => {
 	})
 })
 
-// Export the Router
+/////////////////////////////////////////////
+// Export Router
+/////////////////////////////////////////////
 module.exports = router

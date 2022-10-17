@@ -1,4 +1,6 @@
-// import what I need
+//////////////////////////////////////////////
+// Import Dependencies
+//////////////////////////////////////////////
 const { Schema, model } = require('./connection.js')
 
 // create the schema
@@ -20,5 +22,7 @@ const UserSchema = new Schema(
 // creat the model
 const User = model('User', UserSchema)
 
-// export the model
+//////////////////////////////////////////////
+// Export Model
+//////////////////////////////////////////////
 module.exports = User
