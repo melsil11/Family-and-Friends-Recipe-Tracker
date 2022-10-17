@@ -57,23 +57,25 @@ const getUserDesserts =(user) => {
 		})
 	})
 }
-const getUserMyrecipes =(user) => {
-    return new Promise((res, rej) => {
+// const getUserMyrecipes =(user) => {
+//     return new Promise((res, rej) => {
 		
-		Myrecipes.find({ owner: user }, (err, doc) => {
-			if (err) rej(err)
-			res(doc)
-		})
-	})
-}
+// 		Myrecipes.find({ owner: user }, (err, doc) => {
+// 			if (err) rej(err)
+// 			res(doc)
+// 		})
+// 	})
+// }
 
 router.get('/', (req, res) => {
     const username = req.session.username
 	const loggedIn = req.session.loggedIn
 	const userId = req.session.userId
 
-    Promise.all([getUserMaincoures(userId), getUserDesserts(userId), getUserMyrecipes(userId)])
+	Promise.all([getUserMaincoures(userId), getUserDesserts(userId)])
+    // Promise.all([getUserMaincoures(userId), getUserDesserts(userId), getUserMyrecipes(userId)])
 		.then(myrecipes => {
+			console.log(myrecipes)
 			res.render('myrecipes/index', {myrecipes , username, loggedIn, userId})
             // res.status(200).json({ myrecipes: myrecipes })
             // json has the recipes showing up but not with liquid

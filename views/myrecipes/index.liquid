@@ -25,40 +25,40 @@
         {%- comment -%} {%if maincourse in maincourse%} {%- endcomment -%}
     <div class = 'container'>      
             <div class="row">
-                {% for maincourse in myrecipes %}
+                {%- comment -%} {% for maincourse in myrecipes %} {%- endcomment -%}
                 <div class="card" style="width: 18rem;">
-                    <h5 class="card-header">{{ maincourse.name }}</h5>
+                    <h5 class="card-header">{{ myrecipes.name }}</h5>
                     <div class="card-body">
                         <p class="card-text">                          
-                            {% if maincourse.plantBased %}
+                            {% if myrecipes.plantBased %}
                                 Plant Based
                             {% else %}
                                 Not plant based
                             {% endif %}
                         </p>
                         <p class="card-text">
-                            {% if maincourse.vegitarian %}
+                            {% if myrecipes.vegitarian %}
                                 vegetarian
                             {% else %}
                                 Not vegetarian 
                             {% endif %}
                         </p>
                         <p class="card-text">
-                        {% if maincourse.dairyFree %}
+                        {% if myrecipes.dairyFree %}
                                 Dairy free
                             {% else %}
                                 Not dairy free
                             {% endif %}
                         </p>
                         <p class="card-text">
-                            {% if maincourse.hasMeat %}
+                            {% if myrecipes.hasMeat %}
                                 Contains meat
                             {% else %}
                                 No meat
                             {% endif %}
                         </p>
                         <p class="card-text">
-                            {% if maincourse.hasGluten %}
+                            {% if myrecipes.hasGluten %}
                                 Gluten free
                             {% else %}
                                 Not gluten free
@@ -66,16 +66,17 @@
                         <h5 class="card-header">{{ ingredients.name }}</h5>
                         <h5 class="card-header">{{ directions.name }}</h5>
                         </p>
-                        <a href="/maincourses/{{ maincourse.id }}" class="btn btn-info">
-                            View {{ maincourse.name }}
+                        {%- comment -%} <a href="/maincourses/{{ myrecipes.id }}" class="btn btn-info"> {%- endcomment -%}
+                        {%- comment -%} View {{ myrecipes.name }} {%- endcomment -%}
+                        
                         </a>
                     </div>
                 </div>        
-                {% endfor %}
+                {%- comment -%} {% endfor %} {%- endcomment -%}
             </div>
     {%- comment -%} {% else %}        {%- endcomment -%}
-             <div class="row"> 
-        {% for dessert in myrecipes %}
+             {%- comment -%} <div class="row">  {%- endcomment -%}
+        {%- comment -%} {% for dessert in myrecipes %}
         <div class="card" style="width: 18rem;">
             <h5 class="card-header">{{ dessert.name }}</h5>
             <div class="card-body">
@@ -123,7 +124,7 @@
             </div>
         {% endfor %}
         </div> 
-        </div>  
+        </div>   {%- endcomment -%}
     {%- comment -%} {% endif %}        {%- endcomment -%}
         {% endfor %}
     </div>
