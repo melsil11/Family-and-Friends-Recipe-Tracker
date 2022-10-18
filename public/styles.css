@@ -1,14 +1,13 @@
 body {
-    background-color: lightsteelblue
+    background-image: url('https://images.pexels.com/photos/7296688/pexels-photo-7296688.jpeg?auto=compress&cs=tinysrgb&w=600');
+    background-repeat: no-repeat;
+    background-size: cover; 
+    background-color: rgb(213, 231, 255);
+    margin: auto;
 }
 
 .card {
     margin: 5px;
-}
-img {
-    border-radius: 10%;
-    padding-bottom: 10px;
-    
 }
 
 .card-text{
@@ -17,7 +16,68 @@ img {
 
 }
 
-.btn.btn-info{
+.btn.btn-info {
     margin-top: 5px;
+}
+
+.headings {
+    margin-top: 1%;
+    color: rgb(38, 37, 38);
+    background-color: rgb(243, 225, 248);
+    opacity: 0.7;
+    font-family: 'Petit Formal Script', cursive;
+    font-size: 50px;
+} 
+
+.welcome-message {
+    color: rgb(0, 0, 0);
+    background-color: rgb(246, 235, 249);
+    opacity: 0.7;
+    font-family: 'Petit Formal Script';
+    font-weight: bold;
+    width: 100%;
+}
+
+h2 {
+    font-family: 'Petit Formal Script', cursive;
+    font-size: 30px;
+}
+
+nav {
+    font-family: 'Petit Formal Script';
+}
+.btn-secondary {
+    background-color: rgb(246, 235, 249);
+    color: rgb(130, 131, 132);
+}
+
+.signUp {
+    font-family: 'Petit Formal Script', cursive;
+    font-weight: bold;
+    color: black;
+}
+/* #login {
+    width: 100%;
+    left: 0px; 
+    position: absolute;      
+} */
+.comments {
+    font-family: 'Petit Formal Script';
+}
+
+.card-header {
+    font-family: 'Petit Formal Script';    
+}
+.view {
+    font-family: 'Petit Formal Script';
+    text-align: left;
+}
+
+.showCardBody {
+    color: rgb(0, 0, 0);
+    background-color: rgb(246, 235, 249);
+    opacity: 0.9;
+    font-family: 'Petit Formal Script';
+    font-weight: bold;    
 }
 

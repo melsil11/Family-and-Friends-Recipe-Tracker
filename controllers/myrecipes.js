@@ -61,9 +61,9 @@ router.get('/', (req, res) => {
 
 	Promise.all([getUserMaincoures(userId), getUserDesserts(userId)])
     // Promise.all([getUserMaincoures(userId), getUserDesserts(userId), getUserMyrecipes(userId)])
-		.then(myrecipes => {
-			console.log(myrecipes)
-			res.render('myrecipes/index', {myrecipes , username, loggedIn, userId})
+		.then(myRecipes => {
+			console.log(myRecipes)
+			res.render('myrecipes/index', {myRecipes , username, loggedIn, userId})
             // res.status(200).json({ myrecipes: myrecipes })
             // json has the recipes showing up but not with liquid
 			

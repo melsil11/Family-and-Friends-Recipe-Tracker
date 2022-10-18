@@ -18,116 +18,112 @@
             </div>
         </div>
     </nav>
-    <h2 class="display-6"> All My Recipes</h2>
+    <h2 class="display-6">All My Recipes</h2>
     {%- comment -%} <div class = 'container'> {%- endcomment -%}
     <div class="row">
-        {% for myrecipes in myrecipes %}
-        {%if maincourse.type%} 
-        {%- comment -%} {%if maincourse in maincourse%} {%- endcomment -%}
-         
-            <div class="row">
-                {% for maincourse in myrecipes %}
+        {% for mainCourse in myRecipes[0] %}
+            {%- comment -%} {%if maincourse.type %}         {%- endcomment -%}
+            {%- comment -%} <div class="row"> {%- endcomment -%}
+                {%- comment -%} {% for maincourse in myRecipes%}                    {%- endcomment -%}
                 <div class="card" style="width: 18rem;">
-                    <h5 class="card-header">{{ maincourse.name }}</h5>
+                    <h5 class="card-header">{{ mainCourse.name }}</h5>
                     <div class="card-body">
                         <p class="card-text">                          
-                            {% if maincourse.plantBased %}
+                            {% if mainCourse.plantBased %}
                                 Plant Based
                             {% else %}
                                 Not plant based
                             {% endif %}
                         </p>
                         <p class="card-text">
-                            {% if maincourse.vegitarian %}
+                            {% if mainCourse.vegitarian %}
                                 vegetarian
                             {% else %}
                                 Not vegetarian 
                             {% endif %}
                         </p>
                         <p class="card-text">
-                        {% if maincourse.dairyFree %}
+                        {% if mainCourse.dairyFree %}
                                 Dairy free
                             {% else %}
                                 Not dairy free
                             {% endif %}
                         </p>
                         <p class="card-text">
-                            {% if maincourse.hasMeat %}
+                            {% if mainCourse.hasMeat %}
                                 Contains meat
                             {% else %}
                                 No meat
                             {% endif %}
                         </p>
                         <p class="card-text">
-                            {% if maincourse.hasGluten %}
+                            {% if mainCourse.hasGluten %}
                                 Gluten free
                             {% else %}
                                 Not gluten free
                             {% endif %}
-                        <h5 class="card-header">{{ ingredients.name }}</h5>
-                        <h5 class="card-header">{{ directions.name }}</h5>
+                        {%- comment -%} <h5 class="card-header">{{ ingredients.name }}</h5>
+                        <h5 class="card-header">{{ directions.name }}</h5> {%- endcomment -%}
                         </p>
-                        <a href="/maincourses/{{ maincourse.id }}" class="btn btn-info">
-                        View {{ maincourse.name }} 
-                        
+                        <a href="/maincourses/{{ mainCourse.id }}" class="btn btn-info">
+                        View {{ mainCourse.name }} 
                         </a>
                     </div>
                 </div>        
-                {% endfor %}
-            </div>
-    {% else dessert.type %}       
-             <div class="row"> 
-        {% for dessert in myrecipes %}
-        <div class="card" style="width: 18rem;">
-            <h5 class="card-header">{{ dessert.name }}</h5>
-            <div class="card-body">
-                <p class="card-text">
-                    {% if dessert.plantBased %}
-                        Plant Based
-                    {% else %}
-                        Not plant based
-                    {% endif %}
-                </p>
-                <p class="card-text">
-                    {% if dessert.vegitarian %}
-                        vegetarian
-                    {% else %}
-                        Not vegetarian 
-                    {% endif %}
-                </p>
-                <p class="card-text">
-                   {% if dessert.dairyFree %}
-                        Dairy free
-                    {% else %}
-                        Not dairy free
-                    {% endif %}
-                </p>
-                <p class="card-text">
-                    {% if dessert.hasMeat %}
-                        Contains meat
-                    {% else %}
-                        No meat
-                    {% endif %}
-                </p>
-                <p class="card-text">
-                    {% if dessert.hasGluten %}
-                        Gluten free
-                    {% else %}
-                        Not gluten free
-                    {% endif %}
-                 <h5 class="card-header">{{ ingredients.name }}</h5>
-                 <h5 class="card-header">{{ directions.name }}</h5>
-                </p>
-                <a href="/desserts/{{ dessert.id }}" class="btn btn-info">
-                    View {{ dessert.name }}
-                </a>
-            </div>
-            </div>
+                {%- comment -%} {% endfor %} {%- endcomment -%}
+            {%- comment -%} </div> {%- endcomment -%}
+            {%- comment -%} {% else dessert.type %}        {%- endcomment -%}
+             {%- comment -%} <div class="row">  {%- endcomment -%}
+        {% for dessert in myRecipes[1] %}
+            <div class="card" style="width: 18rem;">
+                <h5 class="card-header">{{ dessert.name }}</h5>
+                <div class="card-body">
+                    <p class="card-text">
+                        {% if dessert.plantBased %}
+                            Plant Based
+                        {% else %}
+                            Not plant based
+                        {% endif %}
+                    </p>
+                    <p class="card-text">
+                        {% if dessert.vegitarian %}
+                            vegetarian
+                        {% else %}
+                            Not vegetarian 
+                        {% endif %}
+                    </p>
+                    <p class="card-text">
+                    {% if dessert.dairyFree %}
+                            Dairy free
+                        {% else %}
+                            Not dairy free
+                        {% endif %}
+                    </p>
+                    <p class="card-text">
+                        {% if dessert.hasMeat %}
+                            Contains meat
+                        {% else %}
+                            No meat
+                        {% endif %}
+                    </p>
+                    <p class="card-text">
+                        {% if dessert.hasGluten %}
+                            Gluten free
+                        {% else %}
+                            Not gluten free
+                        {% endif %}
+                {%- comment -%} <h5 class="card-header">{{ ingredients.name }}</h5>
+                <h5 class="card-header">{{ directions.name }}</h5> {%- endcomment -%}
+                    </p>
+                    <a href="/desserts/{{ dessert.id }}" class="btn btn-info">View {{ dessert.name }}
+                    </a>
+            {%- comment -%} </div> {%- endcomment -%}
+                </div>
         {% endfor %}
-        </div> 
-        </div> 
-    {% endif %}        
+            </div> 
+    {%- comment -%} </div>  {%- endcomment -%}
+            {%- comment -%} {% endif %}         {%- endcomment -%}
         {% endfor %}
-    {%- comment -%} </div> {%- endcomment -%}
+    </div>
 </div>
 {% endblock %}
