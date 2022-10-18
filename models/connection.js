@@ -7,7 +7,7 @@ require('dotenv').config()
 const mongoose = require('mongoose')
 
 // connect to the database
-const DEPLOYED_URL = process.env.DEPLOYED_URL
+// const DEPLOYED_URL = process.env.DEPLOYED_URL
 mongoose.connect(process.env.DEPLOYED_URL, {
 	useUnifiedTopology: true,
 	useNewUrlParser: true,

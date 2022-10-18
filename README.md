@@ -1,4 +1,7 @@
-# Family-and-Friends-Favorite-Recipe-Tracker
+# Family-and-Friends-Favorite-Recipe-Collection
+
+## URL 
+https://family-friends-recipe-collection.fly.dev/
 
 ## Overview
 
@@ -25,7 +28,7 @@ MongoDB, Mongoose, Express.js, LiquidJS, Bootstrap, CSS, HTML
 
 ## Seeds
 
-{ name: '', plantBased: false, vegetarian: false, dairyFree: true, hasMeat: true, glutenFree: true, ingredients:'', directions:'' },
+{ name: '', plantBased: false, vegetarian: false, dairyFree: true, hasMeat: true, glutenFree: true, ingredients:'', directions:'', type: },
 
 ## wireframes
 
