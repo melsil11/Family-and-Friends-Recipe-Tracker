@@ -4,10 +4,13 @@ body {
     background-size: cover; 
     background-color: rgb(213, 231, 255);
     margin: auto;
+    left: 25px;
 }
 
 .card {
     margin: 5px;
+    border-radius: 10%;
+    left: 25px;
 }
 
 .card-text{
@@ -27,6 +30,7 @@ body {
     opacity: 0.7;
     font-family: 'Petit Formal Script', cursive;
     font-size: 50px;
+    padding-left: 15px;
 } 
 
 .welcome-message {
@@ -36,6 +40,7 @@ body {
     font-family: 'Petit Formal Script';
     font-weight: bold;
     width: 100%;
+    padding-left: 15px;
 }
 
 h2 {
@@ -51,16 +56,6 @@ nav {
     color: rgb(130, 131, 132);
 }
 
-/* .signUp {
-    font-family: 'Petit Formal Script', cursive;
-    font-weight: bold;
-    color: black;
-} */
-/* #login {
-    width: 100%;
-    left: 0px; 
-    position: absolute;      
-} */
 .comments {
     font-family: 'Petit Formal Script';
 }
@@ -106,4 +101,10 @@ nav {
     width: 50%;
        
 }
+img {
+    border-radius: 10%;
+}
 
+.display-6 {
+    padding-left: 25px;    
+}
