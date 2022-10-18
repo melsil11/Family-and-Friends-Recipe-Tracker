@@ -41,9 +41,11 @@
                   Not gluten free
               {% endif %}
           </p>
-          <h4>Ingredients: {{dessert.ingredients}} </h4>
+          <h4>Ingredients:</h4> 
+          <p>{{dessert.ingredients}}</p> 
           {%- comment -%} {% if dessert.owner == userId %} {%- endcomment -%}
-          <h4>Directions: {{dessert.directions}} </h4>
+          <h4>Directions:</h4> 
+          <p>{{dessert.directions}}</p> 
           
           {% if dessert.owner == userId %}
           <div class="btn-group">

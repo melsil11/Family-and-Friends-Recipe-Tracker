@@ -42,12 +42,14 @@
                     {% else %}
                         Not gluten free
                     {% endif %}
-                 <h5 class="card-header">{{ ingredients.name }}</h5>
-                 <h5 class="card-header">{{ directions.name }}</h5>
+                 {%- comment -%} <h5 class="card-header">{{ ingredients.name }}</h5>
+                 <h5 class="card-header">{{ directions.name }}</h5> {%- endcomment -%}
                 </p>
-                <a href="/desserts/{{ dessert.id }}" class="btn btn-secondary">
+                <div class = 'view'>
+                    <a href="/desserts/{{ dessert.id }}" class="btn btn-secondary">
                     View {{ dessert.name }}
-                </a>
+                    </a>
+                </div>
             </div>
         </div>
         {% endfor %}

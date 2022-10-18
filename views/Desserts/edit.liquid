@@ -1,66 +1,67 @@
 {% layout 'layout.liquid' %}
 {% block content %}
-<div class="container-sm">
-    <form action="/desserts/{{dessert.id}}?_method=PUT" method="POST">
-        <fieldset>
-            <legend>Edit {{dessert.name}}</legend>
-            <label class="form-label">Name:</label>
-            <input class="form-control" type="text" name="name" placeholder="enter the name of the dessert" value="{{ dessert.name }}">
-            <label class="form-label">Plant Based:</label>
-            <input 
-                type="checkbox" 
-                name="plantBased" 
-                class="form-check-input"
-                {% if dessert.plantBased %}
-                    checked
-                {% endif %}>
-             <label class="form-label">Vegetarian:</label>
-            <input 
-                type="checkbox" 
-                name="vegetarian" 
-                class="form-check-input"
-                {% if dessert.vegetarian %}
-                    checked
-                {% endif %}>
-            <label class="form-label">Dairy Free:</label>
-            <input 
-                type="checkbox" 
-                name="dairyFree" 
-                class="form-check-input"
-                {% if dessert.dairyFree %}
-                    checked
-                {% endif %}>
-            <label class="form-label">Meat:</label>
-            <input 
-                type="checkbox" 
-                name="hasMeat" 
-                class="form-check-input"
-                {% if dessert.hasMeat %}
-                    checked
-                {% endif %}>
-            <label class="form-label">Gluten:</label>
-            <input 
-                type="checkbox" 
-                name="glutenFree" 
-                class="form-check-input"
-                {% if dessert.glutenFree %}
-                    checked
-                {% endif %}>
-            <label class="form-label">Ingredients: </label>
-            <input class="form-control" type="text" name="ingredients" placeholder="enter the ingredients" value="{{ dessert.ingredients }}">
-            <label class="form-label">Directions: </label>
-            <input class="form-control" type="text" name="directions" placeholder="enter the directions" value="{{ dessert.directions }}">
-            <label class="form-label">Type of dish:</label>
-            <input 
-                type="text" 
-                name="type" 
-                placeholder="dessert or maincourse"
-                class="form-control"
-                value="{{dessert.type}}"
-            >
-        </fieldset>
-        <input type="submit" value="Edit {{dessert.name}}" class="btn btn-success">
-    </form>
+<div class = "newCardPage">
+    <div class="container-sm">
+        <form action="/desserts/{{dessert.id}}?_method=PUT" method="POST">
+            <fieldset>
+                <legend>Edit {{dessert.name}}</legend>
+                <label class="form-label">Name:</label>
+                <input class="form-control" type="text" name="name" placeholder="enter the name of the dessert" value="{{ dessert.name }}">
+                <label class="form-label">Plant Based:</label>
+                <input 
+                    type="checkbox" 
+                    name="plantBased" 
+                    class="form-check-input"
+                    {% if dessert.plantBased %}
+                        checked
+                    {% endif %}>
+                <label class="form-label">Vegetarian:</label>
+                <input 
+                    type="checkbox" 
+                    name="vegetarian" 
+                    class="form-check-input"
+                    {% if dessert.vegetarian %}
+                        checked
+                    {% endif %}>
+                <label class="form-label">Dairy Free:</label>
+                <input 
+                    type="checkbox" 
+                    name="dairyFree" 
+                    class="form-check-input"
+                    {% if dessert.dairyFree %}
+                        checked
+                    {% endif %}>
+                <label class="form-label">Meat:</label>
+                <input 
+                    type="checkbox" 
+                    name="hasMeat" 
+                    class="form-check-input"
+                    {% if dessert.hasMeat %}
+                        checked
+                    {% endif %}>
+                <label class="form-label">Gluten:</label>
+                <input 
+                    type="checkbox" 
+                    name="glutenFree" 
+                    class="form-check-input"
+                    {% if dessert.glutenFree %}
+                        checked
+                    {% endif %}>
+                <label class="form-label">Ingredients: </label>
+                <input class="form-control" type="text" name="ingredients" placeholder="enter the ingredients" value="{{ dessert.ingredients }}">
+                <label class="form-label">Directions: </label>
+                <input class="form-control" type="text" name="directions" placeholder="enter the directions" value="{{ dessert.directions }}">
+                <label class="form-label">Input dish type:</label>
+                <input 
+                    type="text" 
+                    name="type" 
+                    placeholder="dessert or maincourse"
+                    class="form-control"
+                    value="{{dessert.type}}"
+                >
+            </fieldset>
+            <input type="submit" value="Edit {{dessert.name}}" class="btn btn-secondary">
+        </form>
+    </div>
 </div>
-
 {% endblock %} 

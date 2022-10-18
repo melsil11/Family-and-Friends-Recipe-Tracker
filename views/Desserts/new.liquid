@@ -1,5 +1,6 @@
 {% layout 'layout.liquid' %}
 {% block content %}
+<div class = "newCardPage">
 <div class="container-sm">
     <form action="/desserts" method="POST">
         <fieldset>
@@ -34,7 +35,8 @@
                 value="{{dessert.type}}"
             >
         </fieldset>
-        <input type="submit" value="Create New recipe" class="btn btn-success">
+        <input type="submit" value="Create New recipe" class="btn btn-secondary">
     </form>
+</div>
 </div>
 {% endblock %}

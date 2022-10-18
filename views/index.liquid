@@ -3,5 +3,49 @@
     <div class="col-mb-4">
     <h1 class = 'headings' id ='welcome-heading'>Welcome to the Family and Friends Recipe Collection.</h1>
     <p class = 'welcome-message'>This app lets family and friends gather treasured recipes and leave notes about recipes they have prepared.</p>
-    </div>    
+    </div>
+    {% if loggedIn %}
+    <div class = '"flex-container"'>
+        <div class = 'homeButtons' id = 'maincourse'>
+            {%- comment -%} <div class ='welcomeMaincoursebutton'> {%- endcomment -%}
+            <img src = 'https://images.pexels.com/photos/3843225/pexels-photo-3843225.jpeg?auto=compress&cs=tinysrgb&w=300' width = '300px' height= "200px">
+            <div class = 'view'>
+                <a href="/maincourses/" class="btn btn-secondary">
+                View Main Courses 
+                </a>
+            </div>      
+        </div> 
+            {%- comment -%} <div class ='welcomeMaincoursebutton'> {%- endcomment -%}
+        <div class = 'homeButtons' id = 'dessert'>
+            <img src = 'https://images.pexels.com/photos/6493067/pexels-photo-6493067.jpeg?auto=compress&cs=tinysrgb&w=400' width = '300px' height= "200px">
+            <div class = 'view'>
+                <a href="/desserts/" class="btn btn-secondary">
+                View Desserts 
+                </a>      
+            </div> 
+        </div>
+    </div>      
+    {% else %}
+    <div class = "flex-container">
+        <div class = 'homeButtons' id = 'maincourse'>
+            {%- comment -%} <div class ='welcomeMaincoursebutton'> {%- endcomment -%}
+            <img src = 'https://images.pexels.com/photos/9713104/pexels-photo-9713104.jpeg?auto=compress&cs=tinysrgb&w=400' width = '300px' height= "200px">
+            <div class = 'view'>
+                <a href="/auth/signup" class="btn btn-secondary">
+                Sign up to see decadent dishes!
+                </a>
+            </div>      
+        </div>
+        <div class = 'homeButtons' id = 'maincourse'>
+            {%- comment -%} <div class ='welcomeMaincoursebutton'> {%- endcomment -%}
+            <img src = 'https://images.pexels.com/photos/9713104/pexels-photo-9713104.jpeg?auto=compress&cs=tinysrgb&w=400' width = '300px' height= "200px">
+            <div class = 'view'>
+                <a href="/auth/login" class="btn btn-secondary">
+                Log in for delightful dishes!
+                </a>
+            </div>      
+        </div>
+    </div> 
+    {% endif %}
 {% endblock %}
+        
