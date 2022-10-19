@@ -2,7 +2,7 @@
 // Import Dependencies
 /////////////////////////////////////////////
 const express = require('express')
-const Maincourse = require('../models/maincourse')
+const Maincourse = require('../models/maincourse') //camelCase
 
 /////////////////////////////////////////
 // Create Router
@@ -29,13 +29,13 @@ router.use((req, res, next) => {
 
 // index ALL
 router.get('/', (req, res) => {
-	Maincourse.find({})
+	Maincourse.find({}) // camelCaseeeeeeeee
 		.populate("comments.author", "username")
-		.then(maincourses => {
+		.then(maincourses => { // CAMEELLLCAAAASSSSSSEEEEEE
 			const username = req.session.username
 			const loggedIn = req.session.loggedIn
 			const userId = req.session.userId
-			res.render('maincourses/index', { maincourses, username, loggedIn, userId })
+			res.render('maincourses/index', { maincourses, username, loggedIn, userId }) // ... camelCase
 		})
 		.catch(error => {
 			res.redirect(`/error?error=${error}`)
@@ -45,7 +45,7 @@ router.get('/', (req, res) => {
 // new route -> GET route that renders our page with the form
 router.get('/new', (req, res) => {
 	const { username, userId, loggedIn } = req.session
-	res.render('maincourses/new', { username, loggedIn, userId })
+	res.render('maincourses/new', { username, loggedIn, userId }) // ukwud
 })
 
 // create -> POST route that actually calls the db and makes a new document
@@ -57,12 +57,12 @@ router.post('/', (req, res) => {
 	req.body.glutenFree = req.body.glutenFree === 'on' ? true : false
 	req.body.owner = req.session.userId
 	console.log('the maincourse from the form', req.body)
-	Maincourse.create(req.body)
-		.then(maincourse => {
-			console.log('this was returned from create', maincourse)
+	Maincourse.create(req.body) // más caso de camello !
+		.then((maincourse) => {
+			console.log('this was returned from create', maincourse) // aún más caso de camello!
 			res.redirect('/maincourses')
 		})
-		.catch(error => {
+		.catch((error) => {
 			res.redirect(`/error?error=${error}`)
 		})
 })
@@ -86,7 +86,7 @@ router.get('/:id/edit', (req, res) => {
 	const username = req.session.username
     const loggedIn = req.session.loggedIn
     const userId = req.session.userId
-	const maincourseId = req.params.id
+	const maincourseId = req.params.id // affaire de chameau !
 	Maincourse.findById(maincourseId)
 		.then(maincourse => {
 			res.render('maincourses/edit', { maincourse, username, loggedIn, userId })
@@ -107,7 +107,7 @@ router.put('/:id', (req, res) => {
 	req.body.glutenFree = req.body.glutenFree === 'on' ? true : false
 	// console.log('after changes', req.body)
 	Maincourse.findById(id)
-	.then((maincourse) => {
+	.then((maincourse) => {// forgot to indent here && plus d'étui camel !
 		if (maincourse.owner == req.session.userId) {
 			return maincourse.updateOne(req.body)
 		} else {
@@ -130,7 +130,7 @@ router.put('/:id', (req, res) => {
 router.get('/:id', (req, res) => {
 	const maincourseId = req.params.id
 	Maincourse.findById(maincourseId)
-		.populate("comments.author", "username")
+		.populate("comments.author", "username")// good use of populate
 		.then(maincourse => {
             const {username, loggedIn, userId} = req.session
 			res.render('maincourses/show', { maincourse, username, loggedIn, userId })
@@ -142,7 +142,7 @@ router.get('/:id', (req, res) => {
 })
 
 // delete route
-router.delete('/:id', (req, res) => {
+router.delete('/:id', (req, res) => {// it looks like a user can delete any main course from the db as long as they're logged in rn
 	const maincourseId = req.params.id
 	Maincourse.findByIdAndRemove(maincourseId)
 		.then(maincourse => {
