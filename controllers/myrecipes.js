@@ -59,7 +59,7 @@ router.get('/', (req, res) => {
 	const loggedIn = req.session.loggedIn
 	const userId = req.session.userId
 
-	Promise.all([getUserMaincoures(userId), getUserDesserts(userId)])
+	Promise.all([getUserMaincoures(userId), getUserDesserts(userId)])// so cool 
     // Promise.all([getUserMaincoures(userId), getUserDesserts(userId), getUserMyrecipes(userId)])
 		.then(myRecipes => {
 			console.log(myRecipes)
