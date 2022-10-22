@@ -17,11 +17,7 @@ const maincourseSchema = new Schema({
 		glutenFree: Boolean,
 		ingredients: String,
 		directions: String,
-		type: {
-			type: String,
-			enum:['maincourse', 'dessert'],
-			required: true
-		},
+		note: String,
 		owner: {			
 			type: Schema.Types.ObjectId,
 			ref: 'User'	

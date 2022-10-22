@@ -1,7 +1,7 @@
 {% layout 'layout.liquid'%}
 {% block content %}
 <div>
-    <h2 class="display-6">All Maine courses</h2>
+    <h2 class="display-6" >All Main courses</h2>
     <div class="row">
         {% for maincourse in maincourses %}
         <div class="card" style="width: 18rem;">
@@ -42,8 +42,6 @@
                     {% else %}
                         Not gluten free
                     {% endif %}
-                 {%- comment -%} <h5 class="card-header">{{ ingredients.name }}</h5>
-                 <h5 class="card-header">{{ directions.name }}</h5> {%- endcomment -%}
                 </p>
                 <div class = 'view'>
                     <a href="/maincourses/{{ maincourse.id }}" class="btn btn-secondary">

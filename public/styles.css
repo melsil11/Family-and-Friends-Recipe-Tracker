@@ -38,7 +38,7 @@ body {
     background-color: rgb(246, 235, 249);
     opacity: 0.7;
     font-family: 'Petit Formal Script';
-    font-weight: bold;
+    font-weight: bolder;
     width: 100%;
     padding-left: 15px;
 }
@@ -46,14 +46,17 @@ body {
 h2 {
     font-family: 'Petit Formal Script', cursive;
     font-size: 30px;
+    font-weight: bolder;
 }
 
 nav {
     font-family: 'Petit Formal Script';
 }
 .btn-secondary {
-    background-color: rgb(246, 235, 249);
-    color: rgb(130, 131, 132);
+    background-color: rgb(243, 225, 248);
+    color: rgb(92, 92, 92);
+    font-weight: bolder;
+    opacity: .7;
 }
 
 .comments {
@@ -95,6 +98,7 @@ nav {
 
 .homeButtons {
     padding: 1%;
+    max-width: 100%;
 }
 
 #maincourse.homeButtons {
@@ -106,5 +110,9 @@ img {
 }
 
 .display-6 {
-    padding-left: 25px;    
+    padding-left: 25px;
+    font-weight: bolder;
+    background-color: rgb(243, 225, 248); 
+    opacity: .7; 
+
 }

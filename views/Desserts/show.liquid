@@ -42,11 +42,12 @@
               {% endif %}
           </p>
           <h4>Ingredients:</h4> 
-          <p>{{dessert.ingredients}}</p> 
+            <p>{{dessert.ingredients}}</p> 
           {%- comment -%} {% if dessert.owner == userId %} {%- endcomment -%}
           <h4>Directions:</h4> 
-          <p>{{dessert.directions}}</p> 
-          
+            <p>{{dessert.directions}}</p> 
+          <h4>Note:</h4> 
+            <p>{{dessert.note}}</p> 
           {% if dessert.owner == userId %}
           <div class="btn-group">
               <a href="/desserts/{{ dessert.id }}/edit" class="btn btn-secondary">Edit</a>
